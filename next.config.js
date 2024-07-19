@@ -27,6 +27,10 @@ const nextConfig = withStoreConfig({
       },
       {
         protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
         hostname: "hyd-ecommerce-bucket.fra1.digitaloceanspaces.com",
       }
     ],

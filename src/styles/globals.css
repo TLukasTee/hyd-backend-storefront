@@ -50,9 +50,6 @@
 }
 
 @layer components {
-  .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
-  }
 
   .contrast-btn {
     @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
@@ -109,4 +106,99 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+}
+
+:root {
+  background-color: white;
+}
+
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.custom-shape-divider-bottom-1719417067 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1719417067 svg {
+  position: relative;
+  display: block;
+  width: calc(125% + 1.3px);
+  height: 107px;
+}
+
+.custom-shape-divider-bottom-1719417067 .shape-fill {
+  fill: #DC2626;
+}
+
+.custom-shape-divider-top-1719417599 {
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1719417599 svg {
+  position: relative;
+  display: block;
+  width: calc(112% + 1.3px);
+  height: 56px;
+}
+
+.custom-shape-divider-top-1719417599 .shape-fill {
+  fill: #DC2626;
+}
+
+.custom-shape-divider-bottom-1719686213 {
+  
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1719686213 svg {
+  position: relative;
+  display: block;
+  width: calc(100%);
+  height: 49px;
+}
+
+.custom-shape-divider-bottom-1719686213 .shape-fill {
+  fill: #DC2626;
+}
+
+.custom-shape-divider-top-1719686294 {
+
+}
+
+.custom-shape-divider-top-1719686294 svg {
+  position: relative;
+  display: block;
+  width: calc(100%);
+  height: 49px;
+}
+
+.custom-shape-divider-top-1719686294 .shape-fill {
+  fill: #DC2626;
 }
