@@ -14,7 +14,7 @@ import ZNAthletes from "@modules/customcomponents/Athletes"
 import FAQ from "@modules/customcomponents/FAQ"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "ZNUTRITION - AUSTRIA",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }
