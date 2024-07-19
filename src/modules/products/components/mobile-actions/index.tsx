@@ -72,58 +72,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="bg-white flex flex-col gap-y-3 justify-center items-center text-large-regular p-4 h-full w-full border-t border-gray-200 ">
-            <div className="flex items-center gap-x-2">
-              <span className="text-neutral-800">{product.title}</span>
-              <span>—</span>
-              {selectedPrice ? (
-                <div className="flex items-end gap-x-2 text-ui-fg-base ">
-                  {selectedPrice.price_type === "sale" && (
-                    <p>
-                      <span className="line-through text-small-regular text-gray-400">
-                        {selectedPrice.original_price}
-                      </span>
-                    </p>
-                  )}
-                  <span
-                    className={clx({
-                      "text-gray-700 font-bold":
-                        selectedPrice.price_type === "sale",
-                    })}
-                  >
-                    {selectedPrice.calculated_price}
-                  </span>
-                </div>
-              ) : (
-                <div></div>
-              )}
-            </div>
-            <div className="grid grid-cols-1 pb-5 w-full gap-x-4">
-              {/* <Button onClick={open} variant="transparent" className="w-full">
-                <div className="flex items-center justify-between w-full">
-                  <span>
-                    {variant
-                      ? Object.values(options).join(" / ")
-                      : "Select Options"}
-                  </span>
-                  <ChevronDown />
-                </div>
-              </Button> */}
-              <Button
-                onClick={handleAddToCart}
-                disabled={!inStock || !variant}
-                className="w-full bg-red-600 rounded-full py-2.5 outline-0 text-white text-base"
-                isLoading={isAdding}
-                variant="transparent"
-              >
-               {!variant
-                ? "Variante Auswählen"
-                : !inStock
-                ? "Ausverkauft"
-                : <><TbShoppingBagPlus className="w-5 m-0 p-0 h-5" /> In den Warenkorb</>}
-              </Button>
-            </div>
-          </div>
+    
         </Transition>
       </div>
       <Transition appear show={state} as={Fragment}>

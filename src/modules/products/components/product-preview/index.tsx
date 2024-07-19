@@ -95,8 +95,8 @@ export default async function ProductPreview({
                     {[...Array(5)].map((_, i) => (
                       <StarIcon   key={i} className="h-4 w-4 text-yellow-500"/>
                     ))}
-                    <span className="ml-1 text-sm text-gray-500">2000</span>
-                  </div>
+  <span className="ml-1 text-sm text-gray-500">{Math.floor(Math.random() * (200 - 14 + 1)) + 14}</span>
+  </div>
             
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
    

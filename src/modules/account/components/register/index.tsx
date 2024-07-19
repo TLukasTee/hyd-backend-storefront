@@ -75,7 +75,7 @@ const Register = ({ setCurrentView }: Props) => {
           {" "}zu.
         </span>
         <div className="my-3"> </div>
-        <SubmitButton className="w-full mt-6 text-center mx-auto flex justify-center items-center ">Jetzt registrieren</SubmitButton>
+        <SubmitButton className="w-full mt-6 text-center mx-auto flex justify-center items-center bg-red-600 text-white ">Jetzt registrieren</SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
         Schon Mitglied ?{" "}

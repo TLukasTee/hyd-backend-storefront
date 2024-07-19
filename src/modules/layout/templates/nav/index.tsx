@@ -38,7 +38,20 @@ export default async function Nav() {
 
             <div className="flex items-center">
               <DropdownNavMobile />
-              <MagnifyingGlassIcon className="h-6 w-6 text-neutral-500 relative left-2" />
+              
+
+              {process.env.FEATURE_SEARCH_ENABLED && (
+  <LocalizedClientLink
+    className="6"
+    href="/search"
+    scroll={false}
+    data-testid="nav-search-link"
+  >
+    <div className="flex items-center w-full">
+    <MagnifyingGlassIcon className="h-6 w-6 text-neutral-500 relative left-2" />
+    </div>
+  </LocalizedClientLink>
+)}
             </div>
             <LocalizedClientLink href="/" className="flex-1 flex justify-center">
               <img
@@ -69,17 +82,24 @@ export default async function Nav() {
              
                 </div>
                 <div className=" lg:ml-6 hidden sm:flex ">
-                <form className="max-w-md mx-auto">   
-                        <label className="mb-2 text-sm font-medium text-gray-900 sr-only ">Suche</label>
-                        <div className="relative">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg className="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                </svg>
-                            </div>
-                            <input type="search" id="default-search"  disabled className="block py-2 w-8  border-0 sm:border-2 px-2 sm:p-4 sm:ps-10 ps-7  placeholder:text-white  sm:placeholder:text-neutral-800  sm:w-96 text-sm text-neutral-900  bg-white rounded-full " placeholder="Suche nach Wheys, Magnesium..." required />
-                        </div>
-                    </form>
+                {process.env.FEATURE_SEARCH_ENABLED && (
+  <LocalizedClientLink
+    className="relative block w-full sm:w-96"
+    href="/search"
+    scroll={false}
+    data-testid="nav-search-link"
+  >
+    <div className="flex items-center w-full">
+      <MagnifyingGlassIcon className="absolute left-3 w-5 h-5 text-gray-400" />
+      <input
+        type="text"
+        placeholder="Suche nach Protein, Nahrung..."
+        className="w-full py-2 pl-10 pr-3 text-sm text-gray-700 bg-white border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        readOnly
+      />
+    </div>
+  </LocalizedClientLink>
+)}
                 </div>
                 <div className="hidden lg:ml-8 lg:flex">
                   <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">
@@ -96,7 +116,7 @@ export default async function Nav() {
                 {/* Search */}
                 <div className="hidden sm:flex "> 
                 <div className="ml-2 flow-root lg:mx-4">
-                  <a href="account" className="group  flex items-center p-2">
+                  <a href="/account" className="group  flex items-center p-2">
                     <UserIcon
                       className="h-8 w-8 flex-shrink-0 text-neutral-700 group-hover:text-gray-800"
                       aria-hidden="true"

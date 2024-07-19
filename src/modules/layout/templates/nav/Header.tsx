@@ -75,8 +75,8 @@ const navigation = {
   ],
   pages: [
 
-    { name: 'Über Uns', href: '#' },
-    { name: 'Kontakt', href: '#' },
+    { name: 'Über Uns', href: '/agbs' },
+    { name: 'Kontakt', href: '/impressum' },
   ],
 }
 

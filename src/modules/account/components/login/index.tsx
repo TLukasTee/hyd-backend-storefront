@@ -48,11 +48,11 @@ const Login = ({ setCurrentView }: Props) => {
           />
         </div>
         <div className="mb-4"> </div>
-        <SubmitButton className="w-full mb-5  bg-red-700 border-white outline-white">Anmelden</SubmitButton>
+        <SubmitButton className="w-full mb-5  bg-red-600 text-white border-white outline-white">Anmelden</SubmitButton>
       </form>
       <div className="mb-4"> </div>
 
-      <span className="text-center text-ui-fg-base text-small-regular mt-6 pt-12">
+      <span className="text-center text-ui-fg-base  text-small-regular mt-6 pt-12">
         Noch kein Mitgleid?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}

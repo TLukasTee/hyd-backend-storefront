@@ -6,7 +6,7 @@ subsets: ['latin'], });
 export default function HeroCustom() {
     return (
       <div className="relative overflow-hidden bg-white">
-        <div className="pb-80 pt-1 sm:pb-40 sm:pt-14 lg:pb-56 lg:pt-14 ">
+        <div className="pb-80 pt-10 sm:pb-40 sm:pt-14 lg:pb-56 lg:pt-14 ">
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-xl">
              
@@ -55,13 +55,13 @@ export default function HeroCustom() {
                 </div>
   
                 <Link
-                  href="#"
+                  href="/store"
                   className="inline-block rounded-md mr-4 border border-transparent  bg-red-600 px-8 py-3 text-center font-medium  rounded-full text-white hover:bg-red-700"
                 >
                   Unser Sortiment
                 </Link>
                 <Link   
-                  href="/test"
+                  href="/products/preworkout-gorilla-zilime"
                   className="inline-block  border-2 cursor-pointer rounded-md border-transparent bg-neutral-510 border-neutral-200 bg-gray-100   px-8 py-3 text-center font-medium text-black hover:bg-red-700"
                 >
                   Zubehör

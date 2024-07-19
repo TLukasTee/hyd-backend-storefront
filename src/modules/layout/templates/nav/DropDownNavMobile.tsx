@@ -56,13 +56,13 @@ const navigation = {
         featured: [
           {
             name: ' ',
-            href: '/collections/vitalstoffe',
+            href: '/products/magnesium-citrate',
             imageSrc: 'https://res.cloudinary.com/dd0kypcrk/image/upload/v1720087687/Hydro_Whey_Vanille_g9fj2w.png',
             imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
           },
           {
             name: ' ',
-            href: '/collections/proteinpulver',
+            href: '/products/proteinpulver',
             imageSrc: 'https://res.cloudinary.com/dd0kypcrk/image/upload/v1719408230/Design_ohne_Titel_1280x1280_skbzp5.svg',
             imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
           },
@@ -73,7 +73,7 @@ const navigation = {
             name: 'Vitalstoffe ',
             items: [
               { name: 'Magensium', href: '/products/magnesium-citrate' },
-              { name: 'Omega 3', href: '/products/omega3' },
+              { name: 'Omega 3', href: '/products/Omega3softgels' },
              
             ],
           },

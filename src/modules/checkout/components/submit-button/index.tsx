@@ -6,7 +6,7 @@ import { useFormStatus } from "react-dom"
 
 export function SubmitButton({
   children,
-  variant = "primary",
+  variant = "transparent",
   className,
   'data-testid': dataTestId
 }: {

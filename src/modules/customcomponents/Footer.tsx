@@ -9,12 +9,11 @@ const FooterCustom: React.FC = () => {
           <div>
             <h2 className="font-bold text-lg mb-4">Informationen</h2>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-600 hover:text-gray-900">Zahlungs- und Versandinformationen</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-gray-900">Widerrufsbelehrung</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-gray-900">Allgemeine Geschäftsbedingungen</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-gray-900">Datenschutzerklärung</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-gray-900">Impressum</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-gray-900">Kontakt</a></li>
+              <li><a href="zahlungundversand" className="text-gray-600 hover:text-gray-900">Zahlungs- und Versandinformationen</a></li>
+              <li><a href="wiederruf" className="text-gray-600 hover:text-gray-900">Widerrufsbelehrung</a></li>
+              <li><a href="agbs" className="text-gray-600 hover:text-gray-900">Allgemeine Geschäftsbedingungen</a></li>
+              <li><a href="dsgvo" className="text-gray-600 hover:text-gray-900">Datenschutzerklärung</a></li>
+              <li><a href="impressum" className="text-gray-600 hover:text-gray-900">Impressum</a></li>
             </ul>
           </div>
           <div>
@@ -28,10 +27,8 @@ const FooterCustom: React.FC = () => {
         </div>
         <div className="flex justify-between items-center border-t border-gray-200 pt-8">
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-gray-600">
-              <FaFacebook size={24} />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-gray-600">
+         
+            <a href="https://www.instagram.com/znutrition.austria/" className="text-gray-400 hover:text-gray-600">
               <FaInstagram size={24} />
             </a>
           </div>

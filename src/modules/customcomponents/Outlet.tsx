@@ -10,7 +10,7 @@ const Outlet: React.FC = () => {
         {/* Left side with image and discount text */}
         <div className="relative md:w-1/2 ">
           <Image
-            src="https://res.cloudinary.com/dd0kypcrk/image/upload/v1719412241/Kopie_von_Kein_Titel_1920_x_1080_px_md9pkk.svg"
+            src="https://res.cloudinary.com/dd0kypcrk/image/upload/v1720900909/Kein_Titel_1920x1080_3_c0rppq.png"
             alt="Athlete wearing ESN apparel"
             width={800}
             height={800}

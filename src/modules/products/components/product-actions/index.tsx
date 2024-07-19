@@ -169,17 +169,7 @@ export default function ProductActions({
               </>
             )}
         </Button>
-        <MobileActions
-          product={product}
-          variant={variant}
-          region={region}
-          options={options}
-          updateOptions={updateOptions}
-          inStock={inStock}
-          handleAddToCart={handleAddToCart}
-          isAdding={isAdding}
-          show={!inView}
-        />
+    
       </div>
     </>
   )

@@ -33,13 +33,13 @@ const navigation = {
       featured: [
         {
           name: 'NEU! | VITALSTOFFE ',
-          href: '/collections/vitalstoffe',
+          href: '/products/magnesium-citrate',
           imageSrc: 'https://res.cloudinary.com/dd0kypcrk/image/upload/v1720087687/Hydro_Whey_Vanille_g9fj2w.png',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Z-NUTRITION | HYDRO WHEY',
-          href: '/collections/proteinpulver',
+          href: '/products/hydro-whey-erdbeere',
           imageSrc: 'https://res.cloudinary.com/dd0kypcrk/image/upload/v1719408230/Design_ohne_Titel_1280x1280_skbzp5.svg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
@@ -50,7 +50,7 @@ const navigation = {
           name: 'Vitalstoffe ',
           items: [
             { name: 'Magensium', href: '/products/magnesium-citrate' },
-            { name: 'Omega 3', href: '/products/omega3' },
+            { name: 'Omega 3', href: '/products/Omega3softgels' },
            
           ],
         },
@@ -59,8 +59,8 @@ const navigation = {
           name: 'Proteine ',
           items: [
             { name: 'Hydro Whey Vanille Eis', href: '/products/hydro-whey-vanille-eis'},
-            { name: 'Hydro Whey Banane', href: '/products/hydro-whey-isolate-banane'},
-            { name: 'Hydro Whey Erdbeere', href: '/products/hydro-whey-isolate-erdbeere'},
+            { name: 'Hydro Whey Banane', href: '/products/hydro-whey-banane'},
+            { name: 'Hydro Whey Erdbeere', href: '/products/hydro-whey-erdbeere'},
           ],
         },
         {
@@ -78,8 +78,8 @@ const navigation = {
   ],
   pages: [
 
-    { name: 'Über Uns', href: '#' },
-    { name: 'Kontakt', href: '#' },
+    { name: 'Über Uns', href: '/agbs' },
+    { name: 'Kontakt', href: '/impressum' },
   ],
 }
 
