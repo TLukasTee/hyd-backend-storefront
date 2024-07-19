@@ -6,6 +6,7 @@ import { Button } from "@medusajs/ui"
 import { isEqual } from "lodash"
 import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
+import { TbShoppingBagPlus } from "react-icons/tb";
 
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { addToCart } from "@modules/cart/actions"
@@ -18,7 +19,6 @@ import ProductPrice from "../product-price"
 type ProductActionsProps = {
   product: PricedProduct
   region: Region
-  disabled?: boolean
 }
 
 export type PriceType = {
@@ -31,7 +31,6 @@ export type PriceType = {
 export default function ProductActions({
   product,
   region,
-  disabled,
 }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string>>({})
   const [isAdding, setIsAdding] = useState(false)
@@ -97,23 +96,13 @@ export default function ProductActions({
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
-    // If we don't manage inventory, we can always add to cart
-    if (variant && !variant.manage_inventory) {
-      return true
+    if (variant && !variant.inventory_quantity) {
+      return false
     }
 
-    // If we allow back orders on the variant, we can add to cart
-    if (variant && variant.allow_backorder) {
+    if (variant && variant.allow_backorder === false) {
       return true
     }
-
-    // If there is inventory available, we can add to cart
-    if (variant?.inventory_quantity && variant.inventory_quantity > 0) {
-      return true
-    }
-
-    // Otherwise, we can't add to cart
-    return false
   }, [variant])
 
   const actionsRef = useRef<HTMLDivElement>(null)
@@ -149,8 +138,6 @@ export default function ProductActions({
                       current={options[option.id]}
                       updateOption={updateOptions}
                       title={option.title}
-                      data-testid="product-options"
-                      disabled={!!disabled || isAdding}
                     />
                   </div>
                 )
@@ -160,21 +147,27 @@ export default function ProductActions({
           )}
         </div>
 
-        <ProductPrice product={product} variant={variant} region={region} />
+        <ProductPrice product={product} variant={variant} region={region}  />
 
         <Button
           onClick={handleAddToCart}
-          disabled={!inStock || !variant || !!disabled || isAdding}
-          variant="primary"
-          className="w-full h-10"
+          disabled={!inStock || !variant}
+          variant="transparent"
+          className="w-full bg-red-600 text-lg max-h-14 text-white border-2 rounded-full hover:bg-red-700 py-2.5  font-bold mb-4 shadow-0 outline-0  "
           isLoading={isAdding}
-          data-testid="add-product-button"
-        >
-          {!variant
-            ? "Select variant"
-            : !inStock
-            ? "Out of stock"
-            : "Add to cart"}
+        >            
+
+
+
+      {!variant
+          ? "Select variant"
+          : !inStock
+          ? "Ausverkauft"
+          : (
+              <>
+                  <TbShoppingBagPlus className="w-5 m-0 p-0 h-5" />  In den Warenkorb
+              </>
+            )}
         </Button>
         <MobileActions
           product={product}
@@ -186,7 +179,6 @@ export default function ProductActions({
           handleAddToCart={handleAddToCart}
           isAdding={isAdding}
           show={!inView}
-          optionsDisabled={!!disabled || isAdding}
         />
       </div>
     </>

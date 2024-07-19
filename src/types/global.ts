@@ -7,6 +7,7 @@ export type FeaturedProduct = {
   title: string
   handle: string
   thumbnail?: string
+  material?: string
 }
 
 export type ProductPreviewType = {
@@ -14,6 +15,7 @@ export type ProductPreviewType = {
   title: string
   handle: string | null
   thumbnail: string | null
+  material?: string | null
   created_at?: Date
   price?: {
     calculated_price: string

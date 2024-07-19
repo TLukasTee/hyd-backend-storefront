@@ -9,6 +9,9 @@ import { cache } from "react"
 import Divider from "@modules/customcomponents/Divider"
 import HeroBanner from "@modules/customcomponents/HeroBanner"
 import HeroCustom from "@modules/layout/templates/HeroCustom"
+import Outlet from "@modules/customcomponents/Outlet"
+import ZNAthletes from "@modules/customcomponents/Athletes"
+import FAQ from "@modules/customcomponents/FAQ"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -71,14 +74,17 @@ export default async function Home({
 
   return (
     <>
-  <HeroCustom />
-<Divider />
-<HeroBanner  />
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
-          <FeaturedProducts collections={collections} region={region} />
+
+           <HeroCustom />
+      <Divider />
+      <HeroBanner  />
+      <ul className="flex flex-col gap-x-6 bg-white">
+      <FeaturedProducts collections={collections} region={region} />
         </ul>
-      </div>
+    
+      <Outlet />
+        <ZNAthletes />
+        <FAQ />
     </>
   )
 }
