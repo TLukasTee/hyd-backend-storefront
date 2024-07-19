@@ -133,7 +133,7 @@ export async function updateCustomerPassword(
     return {
       customer: currentState.customer,
       success: false,
-      error: "Old password is incorrect",
+      error: "Alters Passwort ist nicht korrekt",
     }
   }
 
@@ -141,7 +141,7 @@ export async function updateCustomerPassword(
     return {
       customer: currentState.customer,
       success: false,
-      error: "Passwords do not match",
+      error: "Passwörter stimmen nicht überein",
     }
   }
 
@@ -262,10 +262,11 @@ export async function updateCustomerBillingAddress(
   }
 }
 
-export async function signOut(countryCode: string) {
+export async function signOut() {
   cookies().set("_medusa_jwt", "", {
     maxAge: -1,
   })
+  const countryCode = headers().get("next-url")?.split("/")[1] || ""
   revalidateTag("auth")
   revalidateTag("customer")
   redirect(`/${countryCode}/account`)
