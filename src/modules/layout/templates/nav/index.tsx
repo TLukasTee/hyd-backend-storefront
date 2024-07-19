@@ -7,9 +7,8 @@ import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
-import { Bars3Icon, ChevronDownIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/react/24/outline"
-import { hasFlag } from 'country-flag-icons'
-import  { AT } from 'country-flag-icons/react/3x2'
+import { MagnifyingGlassIcon, UserIcon } from "@heroicons/react/24/outline"
+
 import DropdownNavMobile from "./DropDownNavMobile"
 import DropdownNav from "./DropdownNav"
 
@@ -121,31 +120,6 @@ export default async function Nav() {
               </div>
               </div>
             </nav>
-            {/* <div className=" border-gray-200">
-            <div className="max-w-7xl px-10 mt-4 items-center mx-auto justify-center flex flex gap-x-12 ">
-              <ul className="flex justify-between items-center py-3 text-sm font-medium  gap-x-12">
-              <button className="flex items-center text-gray-700 hover:text-gray-900 font-bold">
-                    Protein <ChevronDownIcon className="ml-1 h-4 w-4" />
-                  </button>            <li>
-                  <button className="flex items-center text-gray-700 hover:text-gray-900 font-bold">
-                    Vitalstoffe <ChevronDownIcon className="ml-1 h-4 w-4" />
-                  </button>
-                </li>
-                <li>
-                  <button className="flex items-center text-gray-700 hover:text-gray-900 font-bold">
-                    Alle Produkte <ChevronDownIcon className="ml-1 h-4 w-4" />
-                  </button>
-                </li>
-                <li>
-                  <button className="flex items-center text-gray-700 hover:text-gray-900 font-bold">
-                    Bestseller <ChevronDownIcon className="ml-1 h-4 w-4" />
-                  </button>
-                </li>
-              
-              
-              </ul>
-            </div>
-            </div> */}
       </header>
     </div>
   )
