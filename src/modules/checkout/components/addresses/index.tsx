@@ -19,7 +19,6 @@ import { SubmitButton } from "../submit-button"
 import { useFormState } from "react-dom"
 import ErrorMessage from "../error-message"
 import compareAddresses from "@lib/util/compare-addresses"
-import { useState, useEffect } from "react"
 
 const Addresses = ({
   cart,
@@ -35,7 +34,7 @@ const Addresses = ({
 
   const countryCode = params.countryCode as string
 
-  const [isOpen, setIsOpen] = useState(searchParams.get("step") === "address")
+  const isOpen = searchParams.get("step") === "address"
 
   const { state: sameAsSBilling, toggle: toggleSameAsBilling } = useToggleState(
     cart?.shipping_address && cart?.billing_address
@@ -44,18 +43,11 @@ const Addresses = ({
   )
 
   const handleEdit = () => {
-    setIsOpen(true)
     router.push(pathname + "?step=address")
   }
 
   const [message, formAction] = useFormState(setAddresses, null)
 
-  const [formComplete, setFormComplete] = useState(false)
-
-  useEffect(() => {
-    // Check if the form is complete (you may need to adjust this logic)
-    setFormComplete(!!cart?.shipping_address && (!sameAsSBilling ? !!cart?.billing_address : true))
-  }, [cart, sameAsSBilling])
 
   return (
     <div className="bg-white">
@@ -65,9 +57,9 @@ const Addresses = ({
           className="flex flex-row text-3xl-regular gap-x-2 items-baseline text-neutral-800"
         >
           Adresse
-          {!isOpen && formComplete && <CheckCircleSolid className="relative top-1" />}
+          {!isOpen && <CheckCircleSolid className="relative top-1" />}
         </Heading>
-        {!isOpen && formComplete && (
+        {!isOpen && cart?.shipping_address && (
           <Text>
             <button
               onClick={handleEdit}
@@ -78,7 +70,7 @@ const Addresses = ({
           </Text>
         )}
       </div>
-      {isOpen || !formComplete ? (
+      {isOpen ? (
         <form action={formAction}>
           <div className="pb-8">
             <ShippingAddress
@@ -89,7 +81,7 @@ const Addresses = ({
               cart={cart}
             />
 
-            {!sameAsSBilling && (
+{!sameAsSBilling && (
               <div>
                 <Heading
                   level="h2"
@@ -101,12 +93,8 @@ const Addresses = ({
                 <BillingAddress cart={cart} countryCode={countryCode} />
               </div>
             )}
-            <SubmitButton
-              variant="transparent"
-              className="w-1/3 text-white hover:bg-red-800 outline-0 outline-white bg-red-700 rounded-2xl text-center font-semibold border-2 border-white px-6 py-3"
-            >
-              Weiter zum Versand
-            </SubmitButton>
+            <SubmitButton       variant="transparent"
+ className="w-1/3 text-white hover:bg-red-800 outline-0 outline-white bg-red-700 rounded-2xl text-center font-semibold border-2 border-white px-6 py-3">Weiter zum Versand</SubmitButton>
             <ErrorMessage error={message} />
           </div>
         </form>
@@ -148,6 +136,36 @@ const Addresses = ({
                       {cart.email}
                     </Text>
                   </div>
+
+                  {/* <div className="flex flex-col w-1/3">
+                    <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                      Rechnungsadresse
+                    </Text>
+
+                    {sameAsSBilling ? (
+                      <Text className="txt-medium text-ui-fg-subtle">
+                        Rechnungs und Lieferadresse sind identisch
+                      </Text>
+                    ) : (
+                      <>
+                        <Text className="txt-medium text-ui-fg-subtle">
+                          {cart.billing_address.first_name}{" "}
+                          {cart.billing_address.last_name}
+                        </Text>
+                        <Text className="txt-medium text-ui-fg-subtle">
+                          {cart.billing_address.address_1}{" "}
+                          {cart.billing_address.address_2}
+                        </Text>
+                        <Text className="txt-medium text-ui-fg-subtle">
+                          {cart.billing_address.postal_code},{" "}
+                          {cart.billing_address.city}
+                        </Text>
+                        <Text className="txt-medium text-ui-fg-subtle">
+                          {cart.billing_address.country_code?.toUpperCase()}
+                        </Text>
+                      </>
+                    )}
+                  </div> */}
                 </div>
               </div>
             ) : (

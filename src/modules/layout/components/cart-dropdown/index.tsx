@@ -9,14 +9,11 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Thumbnail from "@modules/products/components/thumbnail"
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { updateLineItem } from "@modules/cart/actions"
-type ExtendedCart = Omit<Cart, "beforeInsert" | "afterLoad"> & {
-  checkout_step?: string
-}
 
 const CartDropdown = ({
   cart: cartState,
 }: {
-  cart?: ExtendedCart | null
+  cart?: Omit<Cart, "beforeInsert" | "afterLoad"> | null
 }) => {
   const [cartDropdownOpen, setCartDropdownOpen] = useState(false)
   const [discountCode, setDiscountCode] = useState("")
@@ -55,7 +52,7 @@ const CartDropdown = ({
   const freeShippingThreshold = 7500 // 75€ in cents
   const remainingForFreeShipping = Math.max(0, freeShippingThreshold - subtotal)
   const freeShippingProgress = Math.min(100, (subtotal / freeShippingThreshold) * 100)
-  const checkoutStep = cartState?.checkout_step || "address"
+
 
   return (
     <div className="relative z-50">
@@ -200,15 +197,13 @@ const CartDropdown = ({
               <p className="text-xs text-gray-500 mt-1">
                 Gutscheine, Versandkosten und Steuern werden bei der Bezahlung berechnet.
               </p>
-              <div className="mt-6 w-60 mx-auto">
-              <LocalizedClientLink href={`/checkout?step=${checkoutStep}`}>
-  <button
-    onClick={close}
-    className="w-full flex justify-center items-center px-6 py-3 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
-  >
-    Zur Kasse
-  </button>
-</LocalizedClientLink>
+              <div className="mt-6  mx-auto">
+                <LocalizedClientLink
+                  href="/checkout?step=address"
+                  className="flex items-center justify-center rounded-full border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-800 transition-all duration-200"
+                >
+                  Weiter zur Kasse
+                </LocalizedClientLink>
               </div>
             </div>
           ) : null}
