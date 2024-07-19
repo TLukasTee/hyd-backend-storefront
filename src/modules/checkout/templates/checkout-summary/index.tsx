@@ -26,13 +26,13 @@ const CheckoutSummary = async () => {
         <Divider className="my-6 small:hidden" />
         <Heading
           level="h2"
-          className="flex flex-row text-3xl-regular items-baseline"
+          className="flex flex-row text-3xl-regular items-baseline text-neutral-800"
         >
-          In your Cart
+          In deinem Warenkorb
         </Heading>
-        <Divider className="my-6" />
-        <CartTotals data={cart} />
+        <Divider className="mb-4" />
         <ItemsPreviewTemplate region={cart?.region} items={cart?.items} />
+        <CartTotals data={cart} />
         <div className="my-6">
           <DiscountCode cart={cart} />
         </div>

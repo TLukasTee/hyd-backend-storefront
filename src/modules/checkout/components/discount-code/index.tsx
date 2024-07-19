@@ -65,19 +65,12 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               <div
                 className="flex items-center justify-between txt-small-plus"
                 key={gc.id}
-                data-testid="gift-card"
               >
                 <Text className="flex gap-x-1 items-baseline">
                   <span>Code: </span>
-                  <span className="truncate" data-testid="gift-card-code">
-                    {gc.code}
-                  </span>
+                  <span className="truncate">{gc.code}</span>
                 </Text>
-                <Text
-                  className="font-semibold"
-                  data-testid="gift-card-amount"
-                  data-value={gc.balance}
-                >
+                <Text className="font-semibold">
                   {formatAmount({
                     region: region,
                     amount: gc.balance,
@@ -87,7 +80,6 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 <button
                   className="flex items-center gap-x-2 !background-transparent !border-none"
                   onClick={() => removeGiftCardCode(gc.code)}
-                  data-testid="remove-gift-card-button"
                 >
                   <Trash size={14} />
                   <span className="sr-only">Remove gift card from order</span>
@@ -100,32 +92,20 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
         {appliedDiscount ? (
           <div className="w-full flex items-center">
             <div className="flex flex-col w-full">
-              <Heading className="txt-medium">Discount applied:</Heading>
-              <div
-                className="flex items-center justify-between w-full max-w-full"
-                data-testid="discount-row"
-              >
+              <Heading className="txt-medium">Ermäßigungen:</Heading>
+              <div className="flex items-center justify-between w-full max-w-full">
                 <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
                   <span>Code:</span>
-                  <span className="truncate" data-testid="discount-code">
-                    {discounts[0].code}
-                  </span>
-                  <span
-                    className="min-w-fit"
-                    data-testid="discount-amount"
-                    data-value={discounts[0].rule.value}
-                  >
-                    ({appliedDiscount})
-                  </span>
+                  <span className="truncate">{discounts[0].code}</span>
+                  <span className="min-w-fit">({appliedDiscount})</span>
                 </Text>
                 <button
                   className="flex items-center"
                   onClick={removeDiscountCode}
-                  data-testid="remove-discount-button"
                 >
                   <Trash size={14} />
                   <span className="sr-only">
-                    Remove discount code from order
+                    Code entfernen
                   </span>
                 </button>
               </div>
@@ -137,12 +117,11 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="txt-medium text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="add-discount-button"
+                className="txt-medium text-black hover:text-gray-800 font-bold "
               >
-                Add gift card or discount code
+                Füge einen Rabattcode hinzu
               </button>
-              <Tooltip content="You can add multiple gift cards, but only one discount code.">
+              <Tooltip content="Du kannst mehrere Gutscheincodes hinzufügen, aber nur einen Rabattcode.">
                 <InformationCircleSolid color="var(--fg-muted)" />
               </Tooltip>
             </Label>
@@ -150,23 +129,14 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               <>
                 <div className="flex w-full gap-x-2 items-center">
                   <Input
-                    label="Please enter code"
+                    label="Code eingeben..."
                     name="code"
                     type="text"
                     autoFocus={false}
-                    data-testid="discount-input"
                   />
-                  <SubmitButton
-                    variant="secondary"
-                    data-testid="discount-apply-button"
-                  >
-                    Apply
-                  </SubmitButton>
+                  <SubmitButton className="bg-red-600 font-bold outline-0 border-0 px-12 text-white" variant="transparent" >Hinzufügen</SubmitButton>
                 </div>
-                <ErrorMessage
-                  error={message}
-                  data-testid="discount-error-message"
-                />
+                <div className="text-red-600 mt-2"> Dieser Code ist nicht verfügbar. </div>
               </>
             )}
           </form>

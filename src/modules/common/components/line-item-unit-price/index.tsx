@@ -28,7 +28,7 @@ const LineItemUnitPrice = ({
             {style === "default" && (
               <span className="text-ui-fg-muted">Original: </span>
             )}
-            <span className="line-through" data-testid="product-unit-original-price">
+            <span className="line-through">
               {formatAmount({
                 amount: originalPrice,
                 region: region,
@@ -45,9 +45,8 @@ const LineItemUnitPrice = ({
       )}
       <span
         className={clx("text-base-regular", {
-          "text-ui-fg-interactive": hasReducedPrice,
+          "text-black": hasReducedPrice,
         })}
-        data-testid="product-unit-price"
       >
         {formatAmount({
           amount: reducedPrice || item.unit_price || 0,

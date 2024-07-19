@@ -23,19 +23,14 @@ const OrderOverview = ({ orders }: { orders: Order[] }) => {
   }
 
   return (
-    <div
-      className="w-full flex flex-col items-center gap-y-4"
-      data-testid="no-orders-container"
-    >
-      <h2 className="text-large-semi">Nothing to see here</h2>
-      <p className="text-base-regular">
-        You don&apos;t have any orders yet, let us change that {":)"}
+    <div className="w-full flex flex-col items-center gap-y-4">
+      <h2 className="text-large-semi text-xl">Nichts zu sehen hier {": ("}</h2>
+      <p className="text-base-regular text-base">
+        Du hast <span className="font-bold">noch</span> keine Bestellungen. 
       </p>
       <div className="mt-4">
         <LocalizedClientLink href="/" passHref>
-          <Button data-testid="continue-shopping-button">
-            Continue shopping
-          </Button>
+          <Button variant="transparent" className="bg-red-600 text-white px-12 py-2 text-base hover:bg-red-700">Weiter einkaufen</Button>
         </LocalizedClientLink>
       </div>
     </div>

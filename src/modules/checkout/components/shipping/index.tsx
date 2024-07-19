@@ -69,15 +69,15 @@ const Shipping: React.FC<ShippingProps> = ({
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+            "flex flex-row text-3xl-regular gap-x-2 items-baseline text-neutral-800",
             {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && cart.shipping_methods.length === 0,
             }
           )}
         >
-          Delivery
-          {!isOpen && cart.shipping_methods.length > 0 && <CheckCircleSolid />}
+          Lieferung
+          {!isOpen && cart.shipping_methods.length > 0 && <CheckCircleSolid className="relative top-1" />}
         </Heading>
         {!isOpen &&
           cart?.shipping_address &&
@@ -86,16 +86,15 @@ const Shipping: React.FC<ShippingProps> = ({
             <Text>
               <button
                 onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                data-testid="edit-delivery-button"
+                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover "
               >
-                Edit
+                Ändern
               </button>
             </Text>
           )}
       </div>
       {isOpen ? (
-        <div data-testid="delivery-options-container">
+        <div>
           <div className="pb-8">
             <RadioGroup
               value={cart.shipping_methods[0]?.shipping_option_id}
@@ -107,24 +106,23 @@ const Shipping: React.FC<ShippingProps> = ({
                     <RadioGroup.Option
                       key={option.id}
                       value={option.id}
-                      data-testid="delivery-option-radio"
                       className={clx(
-                        "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+                        "flex items-center text-neutral-800 justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
                         {
-                          "border-ui-border-interactive":
+                          "border-ui-border-interactive text-neutral-800":
                             option.id ===
                             cart.shipping_methods[0]?.shipping_option_id,
                         }
                       )}
                     >
-                      <div className="flex items-center gap-x-4">
+                      <div className="flex items-center gap-x-4 text-neutral-800">
                         <Radio
                           checked={
                             option.id ===
                             cart.shipping_methods[0]?.shipping_option_id
                           }
                         />
-                        <span className="text-base-regular">{option.name}</span>
+                        <span className="text-base-regular text-neutral-800">{option.name}</span>
                       </div>
                       <span className="justify-self-end text-ui-fg-base">
                         {formatAmount({
@@ -144,20 +142,17 @@ const Shipping: React.FC<ShippingProps> = ({
             </RadioGroup>
           </div>
 
-          <ErrorMessage
-            error={error}
-            data-testid="delivery-option-error-message"
-          />
+          <ErrorMessage error={error} />
 
           <Button
             size="large"
-            className="mt-6"
+            variant="transparent"
+            className="mt-6 text-white hover:bg-red-800 outline-0 border-0  bg-red-700 border-white outline-white"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={!cart.shipping_methods[0]}
-            data-testid="submit-delivery-option-button"
           >
-            Continue to payment
+            Weiter zur Zahlung
           </Button>
         </div>
       ) : (
@@ -166,7 +161,7 @@ const Shipping: React.FC<ShippingProps> = ({
             {cart && cart.shipping_methods.length > 0 && (
               <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Method
+                  Zahlungsmethode
                 </Text>
                 <Text className="txt-medium text-ui-fg-subtle">
                   {cart.shipping_methods[0].shipping_option.name} (

@@ -1,15 +1,16 @@
+import Addresses from "@modules/checkout/components/addresses"
+import Shipping from "@modules/checkout/components/shipping"
+import Payment from "@modules/checkout/components/payment"
+import Review from "@modules/checkout/components/review"
 import {
   createPaymentSessions,
   getCustomer,
   listCartShippingMethods,
 } from "@lib/data"
-import { getCheckoutStep } from "@lib/util/get-checkout-step"
-import Addresses from "@modules/checkout/components/addresses"
-import Payment from "@modules/checkout/components/payment"
-import Review from "@modules/checkout/components/review"
-import Shipping from "@modules/checkout/components/shipping"
 import { cookies } from "next/headers"
 import { CartWithCheckoutStep } from "types/global"
+import { getCheckoutStep } from "@lib/util/get-checkout-step"
+
 
 export default async function CheckoutForm() {
   const cartId = cookies().get("_medusa_cart_id")?.value

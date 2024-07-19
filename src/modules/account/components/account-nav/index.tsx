@@ -11,6 +11,7 @@ import User from "@modules/common/icons/user"
 import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { TbLogout2 } from "react-icons/tb"
 
 const AccountNav = ({
   customer,
@@ -18,30 +19,29 @@ const AccountNav = ({
   customer: Omit<Customer, "password_hash"> | null
 }) => {
   const route = usePathname()
-  const { countryCode } = useParams() as { countryCode: string }
+  const { countryCode } = useParams()
 
   const handleLogout = async () => {
-    await signOut(countryCode)
+    await signOut()
   }
 
   return (
     <div>
-      <div className="small:hidden" data-testid="mobile-account-nav">
+      <div className="small:hidden ">
         {route !== `/${countryCode}/account` ? (
           <LocalizedClientLink
             href="/account"
             className="flex items-center gap-x-2 text-small-regular py-2"
-            data-testid="account-main-link"
           >
             <>
               <ChevronDown className="transform rotate-90" />
-              <span>Account</span>
+              <span>Dein Account</span>
             </>
           </LocalizedClientLink>
         ) : (
           <>
             <div className="text-xl-semi mb-4 px-8">
-              Hello {customer?.first_name}
+              Hallo {customer?.first_name}!
             </div>
             <div className="text-base-regular">
               <ul>
@@ -49,12 +49,11 @@ const AccountNav = ({
                   <LocalizedClientLink
                     href="/account/profile"
                     className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
-                    data-testid="profile-link"
                   >
                     <>
                       <div className="flex items-center gap-x-2">
                         <User size={20} />
-                        <span>Profile</span>
+                        <span>Profil</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -64,12 +63,11 @@ const AccountNav = ({
                   <LocalizedClientLink
                     href="/account/addresses"
                     className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
-                    data-testid="addresses-link"
                   >
                     <>
                       <div className="flex items-center gap-x-2">
                         <MapPin size={20} />
-                        <span>Addresses</span>
+                        <span>Addresse</span>
                       </div>
                       <ChevronDown className="transform -rotate-90" />
                     </>
@@ -79,11 +77,10 @@ const AccountNav = ({
                   <LocalizedClientLink
                     href="/account/orders"
                     className="flex items-center justify-between py-4 border-b border-gray-200 px-8"
-                    data-testid="orders-link"
                   >
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
-                      <span>Orders</span>
+                      <span>Bestellungen</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </LocalizedClientLink>
@@ -93,11 +90,10 @@ const AccountNav = ({
                     type="button"
                     className="flex items-center justify-between py-4 border-b border-gray-200 px-8 w-full"
                     onClick={handleLogout}
-                    data-testid="logout-button"
                   >
                     <div className="flex items-center gap-x-2">
                       <ArrowRightOnRectangle />
-                      <span>Log out</span>
+                      <span className="font-bold text-red-700">Abmelden</span>
                     </div>
                     <ChevronDown className="transform -rotate-90" />
                   </button>
@@ -107,56 +103,36 @@ const AccountNav = ({
           </>
         )}
       </div>
-      <div className="hidden small:block" data-testid="account-nav">
+      <div className="hidden small:block">
         <div>
           <div className="pb-4">
-            <h3 className="text-base-semi">Account</h3>
+            <h3 className="text-base-semi text-xl font-extrabold text-red-600"> Dein Account</h3>
           </div>
           <div className="text-base-regular">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
               <li>
-                <AccountNavLink
-                  href="/account"
-                  route={route!}
-                  data-testid="overview-link"
-                >
-                  Overview
+                <AccountNavLink href="/account" route={route!}>
+                  Übersicht
                 </AccountNavLink>
               </li>
               <li>
-                <AccountNavLink
-                  href="/account/profile"
-                  route={route!}
-                  data-testid="profile-link"
-                >
-                  Profile
+                <AccountNavLink href="/account/profile" route={route!}>
+                Profileinstellungen
                 </AccountNavLink>
               </li>
               <li>
-                <AccountNavLink
-                  href="/account/addresses"
-                  route={route!}
-                  data-testid="addresses-link"
-                >
-                  Addresses
+                <AccountNavLink href="/account/addresses" route={route!}>
+                  Lieferadresse
                 </AccountNavLink>
               </li>
               <li>
-                <AccountNavLink
-                  href="/account/orders"
-                  route={route!}
-                  data-testid="orders-link"
-                >
-                  Orders
+                <AccountNavLink href="/account/orders" route={route!}>
+                  Bestellungen
                 </AccountNavLink>
               </li>
               <li className="text-grey-700">
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  data-testid="logout-button"
-                >
-                  Log out
+                <button type="button" onClick={handleLogout} className="font-bold inline-flex text-red-600">
+                  <TbLogout2 className="w-4 h-auto relative top-1 mr-2" /> Abmelden
                 </button>
               </li>
             </ul>
@@ -171,10 +147,9 @@ type AccountNavLinkProps = {
   href: string
   route: string
   children: React.ReactNode
-  'data-testid'?: string
 }
 
-const AccountNavLink = ({ href, route, children, 'data-testid': dataTestId }: AccountNavLinkProps) => {
+const AccountNavLink = ({ href, route, children }: AccountNavLinkProps) => {
   const { countryCode }: { countryCode: string } = useParams()
 
   const active = route.split(countryCode)[1] === href
@@ -184,7 +159,6 @@ const AccountNavLink = ({ href, route, children, 'data-testid': dataTestId }: Ac
       className={clx("text-ui-fg-subtle hover:text-ui-fg-base", {
         "text-ui-fg-base font-semibold": active,
       })}
-      data-testid={dataTestId}
     >
       {children}
     </LocalizedClientLink>

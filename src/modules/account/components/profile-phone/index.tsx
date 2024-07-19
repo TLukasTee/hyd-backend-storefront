@@ -32,13 +32,12 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
   return (
     <form action={formAction} className="w-full">
       <AccountInfo
-        label="Phone"
+        label="Telefonnummer"
         currentInfo={`${customer.phone}`}
         isSuccess={successState}
         isError={!!state.error}
         errorMessage={state.error}
         clearState={clearState}
-        data-testid="account-phone-editor"
       >
         <div className="grid grid-cols-1 gap-y-2">
           <Input
@@ -48,7 +47,6 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
             autoComplete="phone"
             required
             defaultValue={customer.phone}
-            data-testid="phone-input"
           />
         </div>
       </AccountInfo>
