@@ -16,7 +16,7 @@ import FAQ from "@modules/customcomponents/FAQ"
 export const metadata: Metadata = {
   title: "ZNUTRITION - AUSTRIA",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Die besten Supplements aus Österreich.",
 }
 
 const getCollectionsWithProducts = cache(
