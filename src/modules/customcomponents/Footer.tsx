@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const FooterCustom: React.FC = () => {
   return (
-    <footer className="bg-white  mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  pb-12 pt-44">
+    <footer className="bg-white  mx-auto max-w-7xl px-12 sm:px-6 lg:px-8  pb-12 pt-24">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
@@ -19,9 +19,9 @@ const FooterCustom: React.FC = () => {
           <div>
             <h2 className="font-bold text-lg mb-4">About</h2>
             <p className="text-gray-600">
-              Aus Österreich für Österreich! Erreiche mit unseren Supplement bester Qualität Dein 
-              Fitness-/ Gesundheitsziel. Faire Preise ✓ VERSANDKOSTENFREI bestellen ✓ Lieferung 
-              innerhalb von 1-2 Tagen ✓
+              Aus Österreich für Österreich! <br/> Erreiche mit unseren Supplements bester Qualität deine
+              Fitnesssziele.<br/><br/>  ✓  Faire Preise <br/> ✓ VERSANDKOSTENFREI bestellen <br/>✓ Lieferung 
+              innerhalb von 1-2 Tagen 
             </p>
           </div>
         </div>

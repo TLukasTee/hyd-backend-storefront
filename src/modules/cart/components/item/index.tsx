@@ -14,6 +14,7 @@ import Spinner from "@modules/common/icons/spinner"
 import { useState } from "react"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Image from "next/image"
 
 type ItemProps = {
   item: Omit<LineItem, "beforeInsert">
@@ -46,8 +47,11 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
   }
 
   return (
-    <Table.Row className="w-full ">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <Table.Row className={clx("bg-gray-100 w-full", {
+      "w-full bg-gray-100": type === "preview",
+      "w-full bg-white": type === "full",
+    })}>
+      <Table.Cell className="!pl-0 p-4 w-24 ">
         <LocalizedClientLink
           href={`/products/${handle}`}
           className={clx("flex", {
@@ -55,7 +59,12 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
             "small:w-24 w-12": type === "full",
           })}
         >
-          <Thumbnail thumbnail={item.thumbnail} size="square" />
+         <div className="relative">
+         <img src={item.thumbnail ?? undefined} alt={item.title} className="w-20 h-20 object-cover" />
+         <div className="absolute -top-2 -right-2 w-5 h-5 bg-gray-300 rounded-full flex items-center justify-center text-xs font-bold">
+            {item.quantity}
+          </div>
+        </div>
         </LocalizedClientLink>
       </Table.Cell>
 
@@ -108,8 +117,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
           })}
         >
           {type === "preview" && (
-            <span className="flex gap-x-1 ">
-              <Text className="text-ui-fg-muted">{item.quantity}x </Text>
+            <span className="flex gap-x-1  ">
               {/* <LineItemUnitPrice item={item} region={region} style="tight" /> */}
             </span>
           )}

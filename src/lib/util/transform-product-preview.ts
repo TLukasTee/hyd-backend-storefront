@@ -22,7 +22,9 @@ const transformProductPreview = (
       return acc
     }, variants[0])
   }
-
+  const proteinValue = product.metadata?.proteinvalue;
+  console.log("Metadata:", product.metadata);
+  console.log("Protein Value:", proteinValue);
   return {
     id: product.id!,
     title: product.title!,
@@ -30,7 +32,7 @@ const transformProductPreview = (
     thumbnail: product.thumbnail!,
     created_at: product.created_at,
     material: product.material!,
-
+    status: typeof proteinValue === 'string' ? proteinValue : (product.status ?? null),
     price: cheapestVariant
       ? {
           calculated_price: formatAmount({

@@ -5,8 +5,8 @@ import NextJs from "../../../common/icons/nextjs"
 
 const MedusaCTA = () => {
   return (
-    <Text className="flex gap-x-2 txt-compact-small-plus items-center">
-      Powered by
+    <Text className="flex gap-x-2 txt-compact-small-plus items-center mt-5">
+      Entwicklung & Design -
       HYDSYSTEMS
     </Text>
   )

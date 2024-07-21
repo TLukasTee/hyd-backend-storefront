@@ -1,24 +1,24 @@
-"use client"
-
-import { formatAmount } from "@lib/util/prices"
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Cart, Order } from "@medusajs/medusa"
-import { Tooltip } from "@medusajs/ui"
-import React from "react"
+'use client'
+import React, { useState } from 'react';
+import { formatAmount } from "@lib/util/prices";
+import { Cart, LineItem, Order } from "@medusajs/medusa";
+import { ChevronDownIcon, ChevronUpIcon, ShoppingCartIcon, TagIcon } from '@heroicons/react/24/outline';
+import DiscountCodeSection from '../cartdiscount';
+import CartPrewiewImage from '../cartpreview';
+import { getPercentageDiff } from '@lib/util/get-precentage-diff';
+import { CalculatedVariant } from 'types/medusa';
 
 type CartTotalsProps = {
   data: Omit<Cart, "refundable_amount" | "refunded_total"> | Order
 }
 
+const isCart = (obj: any): obj is Omit<Cart, "refundable_amount" | "refunded_total"> => {
+  return 'payment_sessions' in obj;
+}
+
 const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
-  const {
-    subtotal,
-    discount_total,
-    gift_card_total,
-    tax_total,
-    shipping_total,
-    total,
-  } = data
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const { total, subtotal, items, shipping_total } = data;
 
   const getAmount = (amount: number | null | undefined) => {
     return formatAmount({
@@ -28,51 +28,77 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
     })
   }
 
+  const calculateTotalSavings = () => {
+    return items.reduce((acc, item) => {
+      const originalPrice = (item.variant as CalculatedVariant).original_price * item.quantity;
+      return acc + (originalPrice - (item.total || 0));
+    }, 0);
+  }
+
+  const totalSavings = calculateTotalSavings();
+  const originalTotal = (total || 0) + totalSavings;
+  const savingsPercentage = getPercentageDiff(originalTotal, total || 0);
+
+  const toggleCollapse = () => setIsCollapsed(!isCollapsed);
+
   return (
-    <div>
-      <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle mt-6">
-        <div className="flex items-center justify-between">
-          <span className="flex gap-x-1 items-center">
-            Zwischensumme
-            <Tooltip content="Exklusive Versand.">
-              <InformationCircleSolid color="var(--fg-muted)" />
-            </Tooltip>
+    <div className="bg-gray-100 border-b border-gray-300">
+      <div 
+        className="flex justify-between items-center p-4 cursor-pointer"
+        onClick={toggleCollapse}
+      >
+        <div className="flex items-center">
+          <ShoppingCartIcon className="mr-2 w-5 h-auto" />
+          <span className="font-semibold">
+            Bestellübersicht {isCollapsed ? "anzeigen" : "verbergen"}
           </span>
-          <span>{getAmount(subtotal)}</span>
+          {isCollapsed ? <ChevronDownIcon className="ml-2 w-5 h-auto" /> : <ChevronUpIcon className="ml-2 w-5 h-auto" />}
         </div>
-        {!!discount_total && (
-          <div className="flex items-center justify-between">
-            <span>Rabatt</span>
-            <span className="text-ui-fg-interactive">
-              - {getAmount(discount_total)}
-            </span>
+        <span className="font-semibold">{getAmount(total)}</span>
+      </div>
+      
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isCollapsed ? 'max-h-0' : 'max-h-[1000px]'}`}>
+        <div className="p-4">
+          {isCart(data) && <CartPrewiewImage cart={data} />}
+          
+          <div className="mt-4">
+            {isCart(data) && <DiscountCodeSection cart={data} />}
           </div>
-        )}
-        {!!gift_card_total && (
-          <div className="flex items-center justify-between">
-            <span>Gutscheincode</span>
-            <span className="text-ui-fg-interactive">
-              - {getAmount(gift_card_total)}
-            </span>
+          
+          <div className="mt-4 space-y-2">
+            <div className="flex justify-between">
+              <span>Zwischensumme</span>
+              <span>{getAmount(subtotal)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Versand</span>
+              <span>{getAmount(shipping_total)}</span>
+            </div>
           </div>
-        )}
-        <div className="flex items-center justify-between">
-          <span>Versand</span>
-          <span>{getAmount(shipping_total)}</span>
+          
+          <div className="mt-4 flex justify-between font-bold">
+            <span className='text-xl'>Summe</span>
+            <div>
+              <span className="mr-2 text-sm text-gray-500">EUR</span>
+              <span className='text-xl'>{getAmount(total)}</span>
+            </div>
+          </div>
+          
+          {totalSavings > 0 && (
+            <div className="mt-2 flex justify-between text-ui-fg-interactive">
+                <div className="gap-x-3 flex justify-start text-ui-fg-interactive">
+              <TagIcon className="w-5 h-auto inline-flex text-black" />
+              <span className='text-black tracking-wide text-base '>GESAMTERSPARNISSE</span>
+              </div>
+              <span className='text-red-600 font-semibold'>{getAmount(totalSavings)} ({savingsPercentage}%)</span>
+            </div>
+          )}
+          
+          <div className="text-right text-sm text-gray-500">inkl. MwSt</div>
         </div>
-        {/* <div className="flex justify-between">
-          <span className="flex gap-x-1 items-center ">MwSt</span>
-          <span>{getAmount(tax_total)}</span>
-        </div> */}
       </div>
-      <div className="h-px w-full border-b border-gray-200 my-4" />
-      <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
-        <span>Summe inkl. MwSt.</span>
-        <span className="txt-xlarge-plus">{getAmount(total)}</span>
-      </div>
-      <div className="h-px w-full border-b border-gray-200 mt-4" />
     </div>
-  )
+  );
 }
 
-export default CartTotals
+export default CartTotals;

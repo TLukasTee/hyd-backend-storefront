@@ -10,7 +10,7 @@ const HeroBanner: React.FC = () => {
           <BannerItem
             icon={<TruckIcon className="w-8 h-8 sm:w-12 sm:h-12 text-red-600" />}
             title="Kurzer Versandweg"
-            subtitle="Postversand: 1-2 Werktage"
+            subtitle="Postversand: 2-3 Werktage"
           />
           <BannerItem
             icon={<PhoneIcon className="w-8 h-8 sm:w-12 sm:h-12 text-red-600" />}

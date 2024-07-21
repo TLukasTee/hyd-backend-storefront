@@ -119,7 +119,7 @@ const Payment = ({
           <Text>
             <button
               onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              className=" hover:bg-gray-300 bg-gray-200 px-4 py-1.5 text-black rounded-2xl"
             >
               Ändern
             </button>
@@ -193,7 +193,7 @@ const Payment = ({
         <div className={isOpen ? "hidden" : "block"}>
           {cart && paymentReady && cart.payment_session && (
             <div className="flex items-start gap-x-1 w-full">
-              <div className="flex flex-col w-1/3">
+              <div className="flex flex-col w-1/3 gap-y-4">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
                  Zahlungsmethode
                 </Text>
@@ -209,7 +209,7 @@ const Payment = ({
                     <Tooltip content="You can add a user-friendly name and icon for this payment provider in 'src/modules/checkout/components/payment/index.tsx'" />
                   )}
               </div>
-              <div className="flex flex-col w-1/3">
+              <div className="flex flex-col w-2/3 gap-y-4 ">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
                   Zahlungsdetails
                 </Text>

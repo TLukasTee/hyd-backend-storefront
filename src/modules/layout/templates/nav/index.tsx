@@ -28,7 +28,7 @@ export default async function Nav() {
    
     <div className="sticky top-0 inset-x-0 z-50 group bg-white">
         <p className="flex h-10 items-center justify-center bg-red-600 px-4 sm:text-sm text-xs font-medium text-white sm:px-6 lg:px-8">
-          Neu in Österreich! Kostenloser Versand ab 50€ Bestellwert.
+          Neu in Österreich! Kostenloser Versand ab 75€ Bestellwert.
         </p>
           <header className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           

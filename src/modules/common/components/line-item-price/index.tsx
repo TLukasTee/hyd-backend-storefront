@@ -45,7 +45,7 @@ const LineItemPrice = ({
           </>
         )}
         <span
-          className={clx("text-base-regular", {
+          className={clx("text-base-regular text-base", {
             "text-black font-bold": hasReducedPrice,
           })}
         >

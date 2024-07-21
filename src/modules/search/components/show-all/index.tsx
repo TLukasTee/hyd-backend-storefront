@@ -14,10 +14,10 @@ const ShowAll = () => {
   if (hits.length === 0) {
     return (
       <Container
-        className="flex gap-2 justify-center h-fit py-2"
+        className="flex gap-2 justify-center h-fit py-3"
         data-testid="no-search-results-container"
       >
-        <Text>Kein Ergebnis.</Text>
+        <Text>Leider finden wir dazu nichts.</Text>
       </Container>
     )
   }

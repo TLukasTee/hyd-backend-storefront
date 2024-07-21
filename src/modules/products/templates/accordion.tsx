@@ -3,14 +3,15 @@ import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 
 import { getProductsList, getRegion } from "@lib/data"
 
-import ProductPreview from "../product-preview"
+import ProductNutritions from "./nutritions"
+import AccordionDetails from "./accordiondetails"
 
 type RelatedProductsProps = {
   product: PricedProduct
   countryCode: string
 }
 
-export default async function RelatedProducts({
+export default async function ProductNutritions2({
   product,
   countryCode,
 }: RelatedProductsProps) {
@@ -61,22 +62,17 @@ export default async function RelatedProducts({
   }
 
   return (
-    <div className="product-page-constraint bg-white ">
-      <div className="flex flex-col items-start text-start mb-3 px-4">
-        <span className="text-xl font-bold text-gray-800 mb-2">
-        Mehr passende Produkte für dich
+    <div className=" bg-white">
+  
 
-        </span>
-     
-      </div>
+      <ul className="">
+       
+<ProductNutritions product={product} countryCode={countryCode} />
 
-      <ul className="grid grid-cols-1 px-4 sm:px-0 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
-        {productPreviews.map((productPreview) => (
-          <li key={productPreview.id}>
-            <ProductPreview region={region} productPreview={productPreview} />
-          </li>
-        ))}
       </ul>
+
+      <AccordionDetails />
+
     </div>
   )
 }

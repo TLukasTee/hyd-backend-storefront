@@ -10,21 +10,21 @@ const Hero = () => {
             level="h1"
             className="text-3xl leading-10 text-ui-fg-base font-normal"
           >
-            Ecommerce Starter Templatetest
+            HYD SYSTEMS
           </Heading>
           <Heading
             level="h2"
             className="text-3xl leading-10 text-ui-fg-subtle font-normal"
           >
-            Powered by HYD SYSTEMS
+            Entwicklung & Design - HYD SYSTEMS
           </Heading>
         </span>
         <a
-          href="https://github.com/medusajs/nextjs-starter-medusa"
+          href=""
           target="_blank"
         >
           <Button variant="secondary">
-            View on GitHub
+            HYD SYSTEMS
             <Github />
           </Button>
         </a>

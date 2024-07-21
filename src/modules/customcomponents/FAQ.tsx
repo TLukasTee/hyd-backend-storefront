@@ -68,7 +68,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 p-4 sm:p-8 bg-white shadow-md border-4 rounded-2xl max-w-7xl mx-auto">
+    <div className="flex flex-col sm:px-0 px-8 gap-8 p-4 sm:p-8 bg-white shadow-md border-4 rounded-2xl max-w-7xl mx-auto">
       <div className="w-full">
         <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-neutral-800">FAQ</h1>
         <p className="mb-4 text-sm sm:text-base text-neutral-800">Hier beantworten wir die häufigst gestellten Fragen:</p>

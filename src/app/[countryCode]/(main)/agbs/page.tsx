@@ -7,7 +7,7 @@ const agbs: React.FC = () => {
       
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">1. Geltungsbereich</h2>
-        <p>1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die zwischen Z-Nutrition GmbH, [Adresse], nachfolgend &quot;Verkäufer&quot; und dem Kunden nachfolgend &quot;Käufer&quot; über den Online-Shop des Verkäufers geschlossen werden.</p>
+        <p>1.1 Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die zwischen Haumand Altalbani, Traunfeldstraße 3, 4050, Traun, Österreich , nachfolgend &quot;Verkäufer&quot; und dem Kunden nachfolgend &quot;Käufer&quot; über den Online-Shop des Verkäufers geschlossen werden.</p>
         <p>1.2 Es gilt die zum Zeitpunkt der Bestellung gültige Fassung der AGB.</p>
       </section>
       

@@ -21,20 +21,19 @@ const CheckoutSummary = async () => {
   }
 
   return (
-    <div className="sticky top-0 flex flex-col-reverse small:flex-col gap-y-8 py-8 small:py-0 ">
-      <div className="w-full bg-white flex flex-col">
-        <Divider className="my-6 small:hidden" />
+    <div className="">
+      <div className="">
+        {/* <Divider className="my-6 small:hidden" />
         <Heading
           level="h2"
           className="flex flex-row text-3xl-regular items-baseline text-neutral-800"
         >
           In deinem Warenkorb
         </Heading>
-        <Divider className="mb-4" />
-        <ItemsPreviewTemplate region={cart?.region} items={cart?.items} />
+        <Divider className="mb-4" /> */}
+        {/* <ItemsPreviewTemplate region={cart?.region} items={cart?.items} /> */}
         <CartTotals data={cart} />
         <div className="my-6">
-          <DiscountCode cart={cart} />
         </div>
       </div>
     </div>

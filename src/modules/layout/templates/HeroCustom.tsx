@@ -1,18 +1,21 @@
 'use client'
 import { Bebas_Neue} from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 const Beba = Bebas_Neue({  weight: ['400'],
 subsets: ['latin'], });
 export default function HeroCustom() {
     return (
       <div className="relative overflow-hidden bg-white">
-        <div className="pb-80 pt-10 sm:pb-40 sm:pt-14 lg:pb-56 lg:pt-14 ">
-          <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+        <div className="pb-80 pt-10 sm:pb-40 sm:pt-14 lg:pb-56 lg:pt-14  ">
+          <div className="relative mx-auto max-w-7xl px-7 sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-xl">
              
               <div className="sm:ml-2 sm:ml-4 lg:ml-0 inline-flex">
                 <a href="#" className='inline-flex'>
-                  <img
+                  <Image
+                  width={200}
+                  height={200}
                     className="h-8 w-auto  sm:h-14 sm:w-auto"
                     src="https://res.cloudinary.com/dcfburp7p/image/upload/v1719253729/z-nutritionlogo_qmtyta.png"
                     alt=""

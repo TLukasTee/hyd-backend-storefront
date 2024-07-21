@@ -217,7 +217,7 @@ export default function Header() {
 
       <header className=" bg-white sticky ">
         <p className="flex h-10 items-center justify-center bg-red-600 px-4 sm:text-sm text-xs font-medium text-white sm:px-6 lg:px-8">
-          Neu in Österreich! Kostenloser Versand ab 50€ Bestellwert.
+          Neu in Österreich! Kostenloser Versand ab 75€ Bestellwert.
         </p>
 
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 ">

@@ -8,9 +8,9 @@ export default function CheckoutLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="py-12  mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  pb-12">
+    <div className="py-12  mx-auto max-w-7xl ">
       <div className="h-16 bg-white border-b ">
-        <nav className="flex h-full items-center content-container justify-between">
+        <nav className="flex h-full items-center content-container justify-between px-3">
           <LocalizedClientLink
             href="/cart"
             className="text-small-semi text-ui-fg-base flex items-center gap-x-2 uppercase flex-1 basis-0"

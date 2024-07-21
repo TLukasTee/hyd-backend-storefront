@@ -1,7 +1,7 @@
 'use client'
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowRightIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 
 const navigation2 = {
@@ -62,28 +62,31 @@ const navigation = {
           },
           {
             name: ' ',
-            href: '/products/proteinpulver',
+            href: '/products/hydro-whey-erdbeere',
             imageSrc: 'https://res.cloudinary.com/dd0kypcrk/image/upload/v1719408230/Design_ohne_Titel_1280x1280_skbzp5.svg',
             imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
           },
         ],
         sections: [
-          {
-            id: 'clothing',
-            name: 'Vitalstoffe ',
-            items: [
-              { name: 'Magensium', href: '/products/magnesium-citrate' },
-              { name: 'Omega 3', href: '/products/Omega3softgels' },
-             
-            ],
-          },
+         
           {
             id: 'accessories',
             name: 'Proteine ',
+            href: '/collections/proteine',
             items: [
               { name: 'Hydro Whey Vanille Eis', href: '/products/hydro-whey-vanille-eis'},
               { name: 'Hydro Whey Banane', href: '/products/hydro-whey-isolate-banane'},
               { name: 'Hydro Whey Erdbeere', href: '/products/hydro-whey-isolate-erdbeere'},
+            ],
+          },
+          {
+            id: 'clothing',
+            name: 'Vitalstoffe ',
+            href: '/collections/vitalstoffe',
+            items: [
+              { name: 'Magensium', href: '/products/magnesium-citrate' },
+              { name: 'Omega 3', href: '/products/Omega3softgels' },
+             
             ],
           },
           {
@@ -102,8 +105,8 @@ const navigation = {
     ],
     pages: [
   
-      { name: 'Über Uns', href: '#' },
-      { name: 'Kontakt', href: '#' },
+      { name: 'Über Uns', href: '/' },
+      { name: 'Kontakt', href: '/' },
     ],
   }
 export default function DropdownNavMobile() {
@@ -179,7 +182,7 @@ export default function DropdownNavMobile() {
                   {navigation.categories.map((category) => (
                     <div
                       key={category.id}
-                      className="space-y-10 px-4 pb-8 pt-10"
+                      className="space-y-3 px-4 pb-8 pt-10"
                       id={`${category.id}-content`}
                       role="tabpanel"
                       tabIndex={0}
@@ -204,11 +207,14 @@ export default function DropdownNavMobile() {
                         ))}
                       </div>
                       {category.sections.map((section) => (
-                        <div key={section.name}>
-                                                  <a href={section.href} className=" block font-medium text-gray-900">
+                        
+                        <div key={section.name} className='text-lg text-start rounded-md   py-2'> 
+                                         <a href={section.href} className=" block font-medium text-gray-900">
 
                           <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
                             {section.name}
+                            <ArrowRightIcon className="h-4 w-4 ml-3 text-red-500 inline-flex" aria-hidden="true" />
+                            
                           </p>
                           </a>
                          
@@ -234,7 +240,7 @@ export default function DropdownNavMobile() {
         </a>
       </div>
       <div className="flow-root">
-        <a href="/account" className="-m-2 block p-2 font-medium text-gray-900">
+        <a href="/account?view=register" className="-m-2 block p-2 font-medium text-gray-900">
           Kundenkonto erstellen
         </a>
       </div>
@@ -242,7 +248,9 @@ export default function DropdownNavMobile() {
 
     <div className="border-t border-gray-200 px-4 py-6">
       <a href="#" className="-m-2 flex items-center p-2">
-        <img
+        <Image
+        width={50}
+        height={50}
               src="https://catamphetamine.gitlab.io/country-flag-icons/3x2/AT.svg"
               alt=""
           className="block h-auto w-5 flex-shrink-0"

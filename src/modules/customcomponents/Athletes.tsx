@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface Athlete {
@@ -38,7 +39,7 @@ const athletes: Athlete[] = [
   },
   {
     id: 4,
-    name: "Murga",
+    name: "Muris Izmirlija",
     username: "@murga____",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429579/361397238_634129768456543_7192542947895908387_n_o5qpp8.jpg",
     profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429579/361397238_634129768456543_7192542947895908387_n_o5qpp8.jpg",
@@ -55,9 +56,9 @@ const AthleteCard: React.FC<{ athlete: Athlete }> = ({ athlete }) => (
     className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 border-2 border-red-500"
   >
     <img src={athlete.image} alt={athlete.name} className="w-full h-full object-cover" />
-    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-neutral-700 to-transparent p-5">
       <div className="flex items-center">
-        <img src={athlete.profilePic} alt={`${athlete.name} profile`} className="w-10 h-10 rounded-full mr-3" />
+        <Image width={100} height={100} src={athlete.profilePic} alt={`${athlete.name} profile`} className="w-10 h-10 rounded-full mr-3" />
         <div>
           <h3 className="text-white font-bold">{athlete.name}</h3>
           <p className="text-gray-300 text-sm">{athlete.username}</p>
@@ -83,7 +84,7 @@ const ZNAthletes: React.FC = () => {
                     src="https://res.cloudinary.com/dd0kypcrk/image/upload/v1719478016/NUTRITION_deew1g.svg"
                     alt=""
                   />  Athleten</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 pt-6 sm:pt-0 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 pt-6 sm:pt-0  p-5 ">
           {athletes.map(athlete => (
             <AthleteCard key={athlete.id} athlete={athlete} />
           ))}

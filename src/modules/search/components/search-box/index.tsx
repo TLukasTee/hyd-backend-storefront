@@ -41,6 +41,14 @@ const ControlledSearchBox = ({
 
   return (
     <div {...props} className="w-full">
+      <style jsx>{`
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
+          -webkit-appearance: none;
+        }
+      `}</style>
       <form action="" noValidate onSubmit={handleSubmit} onReset={handleReset}>
         <div className="flex items-center justify-between">
           <input
@@ -54,15 +62,14 @@ const ControlledSearchBox = ({
             type="search"
             value={value}
             onChange={onChange}
-            className="txt-compact-large h-6 placeholder:text-ui-fg-on-color placeholder:transition-colors focus:outline-none flex-1 bg-transparent "
+            className="txt-compact-large h-6 placeholder:text-ui-fg-on-color placeholder:transition-colors focus:outline-none flex-1 bg-transparent"
           />
           {value && (
             <button
               onClick={handleReset}
               type="button"
-              className="items-center justify-center text-ui-fg-on-color focus:outline-none gap-x-2 px-2 txt-compact-large flex"
+              className="items-center justify-center focus:outline-none gap-x-2 px-2 txt-compact-large flex"
             >
-              <XMarkMini />
               Abbrechen
             </button>
           )}

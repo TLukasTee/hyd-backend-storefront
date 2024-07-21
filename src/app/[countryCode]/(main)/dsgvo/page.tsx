@@ -17,11 +17,11 @@ const dsgvo: React.FC = () => {
         <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
         <h3 className="text-xl font-semibold mt-4 mb-2">Hinweis zur verantwortlichen Stelle</h3>
         <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-        <p>Z-Nutrition GmbH<br />
-        [Straße Nr.]<br />
-        [PLZ] Wien<br />
+        <p>Haumand Altalbani<br />
+        Traunfeldstraße 5<br />
+       4050 Traun<br />
         Österreich</p>
-        <p>Telefon: [Telefonnummer]<br />
+        <p>Telefon: +436702024825<br />
         E-Mail: office@z-nutrition.at</p>
         <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
       </section>

@@ -39,9 +39,10 @@ const Outlet: React.FC = () => {
           <div className="text-white mb-10">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-center">RABATT</h2>
             <p className="text-lg md:text-xl mb-4 text-center  font-bold">-17% auf Premium-Supplements</p>
+            <a href="/store"> 
             <button className="bg-red-600  text-white text-center flex justify-center items-center mx-auto text-black font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
-              CODE KOPIEREN <ClipboardDocumentIcon className="w-6 h-6 ml-2" />
-            </button>
+              JETZT BESTELLEN
+            </button></a>
           </div>
         </div>
       </div>
