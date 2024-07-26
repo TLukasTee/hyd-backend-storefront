@@ -9,7 +9,7 @@ export default function CheckoutLayout({
 }) {
   return (
     <div className="py-12  mx-auto max-w-7xl ">
-      <div className="h-16 bg-white border-b ">
+      <div className="h-16 bg-white ">
         <nav className="flex h-full items-center content-container justify-between px-3">
           <LocalizedClientLink
             href="/cart"

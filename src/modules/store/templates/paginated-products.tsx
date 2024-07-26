@@ -62,16 +62,22 @@ export default async function PaginatedProducts({
 
   return (
     <>
-      <ul className="grid  grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8" data-testid="products-list">
-        {products.map((p) => {
-          return (
-            <li key={p.id}>
-              <ProductPreview productPreview={p} region={region} />
-            </li>
-          )
-        })}
-      </ul>
-      {totalPages > 1 && <Pagination data-testid="product-pagination" page={page} totalPages={totalPages} />}
+
+      <div className="mx-auto max-w-7xl mt-12">
+        <ul className="grid mx-auto   grid-cols-1 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8" data-testid="products-list">
+          {products.map((p) => {
+            return (
+              <li key={p.id}>
+                <ProductPreview productPreview={p} region={region} />
+              </li>
+            )
+          })}
+        </ul>
+        {totalPages > 1 && <Pagination data-testid="product-pagination" page={page} totalPages={totalPages} />}
+
+
+
+      </div>
     </>
   )
 }

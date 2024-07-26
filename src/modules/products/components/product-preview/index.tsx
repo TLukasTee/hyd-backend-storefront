@@ -33,7 +33,7 @@ export default async function ProductPreview({
   if (!pricedProduct) {
     return null
   }
- 
+
 
   const { cheapestPrice } = getProductPrice({
     product: pricedProduct,
@@ -55,55 +55,55 @@ export default async function ProductPreview({
     </svg>
   );
 
-  
+
 
   return (
     <LocalizedClientLink
       href={`/products/${productPreview.handle}`}
       className="group"
     >
-      
 
 
-    <div  className="group relative ">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-xl bg-gray-200  h-80 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                
-               <Thumbnail
-                  thumbnail={productPreview.thumbnail}
-                  size="full"
-                  isFeatured={isFeatured}
-                  className="h-full w-full object-cover object-center  p-24  lg:h-full lg:w-full  pt-6"
-                  />
-              </div> 
-              <div className="absolute top-3 left-3 bg-red-600 outline-2 text-white text-xs font-bold px-2 py-1.5 rounded-full flex">
-                   <TagIcon className="h-5 w-5  flex-inline relative text-white" /> 
-                   <div className=" flex-inline ml-1 text-[15px] mt-0.5 tracking-tighter"> -17%    </div>   
-                </div>
-              <div className="mt-4 flex justify-between">
-                <div>
-                  <h3 className="text-sm text-gray-700">
-                  <div className="mt- mb-2 text-sm text-gray-500 font-normal border-2 rounded-full  w-max  px-2.5  "> {productPreview.material ? productPreview.material : "-"}</div>
 
-                    <div >
-                      <span aria-hidden="true" className="absolute inset-0 " />
-                      
-                     <span className="font-extrabold text-lg uppercase"> {productPreview.title}</span>
-                    </div>
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">Z-NUTRITION | PREMIUM</p>
-                  <div className="mt-1 flex items-center">
-                    {[...Array(5)].map((_, i) => (
-                      <StarIcon   key={i} className="h-4 w-4 text-yellow-500"/>
-                    ))}
-  <span className="ml-1 text-sm text-gray-500">{Math.floor(Math.random() * (200 - 14 + 1)) + 14}</span>
-  </div>
-            
-            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-   
-                </div>
-                
+      <div className="group relative ">
+        <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-xl bg-gray-200  h-80 lg:aspect-none group-hover:opacity-75 lg:h-80">
+
+          <Thumbnail
+            thumbnail={productPreview.thumbnail}
+            size="full"
+            isFeatured={isFeatured}
+            className="h-full w-full object-cover object-center   lg:h-full lg:w-full  pt-6"
+          />
+        </div>
+        <div className="absolute top-2 left-3 bg-red-600 outline-2 text-white text-xs font-bold px-2 py-1.5 rounded-full flex">
+          <TagIcon className="h-5 w-5  flex-inline relative text-white" />
+          <div className=" flex-inline ml-1 text-[14px] mt-0.5 tracking-tighter"> -17%    </div>
+        </div>
+        <div className="mt-4 flex justify-between">
+          <div>
+            <h3 className="text-sm text-gray-700">
+              <div className="mt- mb-2 text-sm text-gray-500 font-normal border-2 rounded-full  w-max  px-2.5  "> {productPreview.material ? productPreview.material : "-"}</div>
+
+              <div >
+                <span aria-hidden="true" className="absolute inset-0 " />
+
+                <span className="font-extrabold text-lg uppercase"> {productPreview.title}</span>
               </div>
+            </h3>
+            <p className="mt-1 text-sm text-gray-500">Z-NUTRITION | PREMIUM</p>
+            <div className="mt-1 flex items-center">
+              {[...Array(5)].map((_, i) => (
+                <StarIcon key={i} className="h-4 w-4 text-yellow-500" />
+              ))}
+              <span className="ml-1 text-sm text-gray-500">{Math.floor(Math.random() * (100 - 14 + 1)) + 14}</span>
             </div>
+
+            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
+
+          </div>
+
+        </div>
+      </div>
     </LocalizedClientLink>
   )
 }

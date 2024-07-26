@@ -68,8 +68,8 @@ export default async function ProductNutritions({
   }
 
   return (
-    <div className="bg-white p-4">
-      <div className="bg-white p-8 border-2 rounded-2xl border-gray-100/60 shadow-sm">
+    <div className="bg-white">
+      <div className="bg-white p-7 sm:p-8 border-0 sm:border-2  sm:rounded-2xl border-gray-100/60 shadow-0 sm:shadow-sm">
         <div className="space-y-2">
           {nutritionInfo.map((item, index) => (
             <div key={index} className="flex justify-between items-center">

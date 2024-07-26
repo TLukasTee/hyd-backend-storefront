@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const FooterCustom: React.FC = () => {
   return (
-    <footer className="bg-white  mx-auto max-w-7xl px-12 sm:px-6 lg:px-8  pb-12 pt-24">
+    <footer className="bg-white  mx-auto max-w-7xl px-8 sm:px-12 lg:px-12  pb-12 pt-24">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
@@ -17,11 +17,11 @@ const FooterCustom: React.FC = () => {
             </ul>
           </div>
           <div>
-            <h2 className="font-bold text-lg mb-4">About</h2>
+            <h2 className="font-bold text-lg mb-4">Über Uns</h2>
             <p className="text-gray-600">
               Aus Österreich für Österreich! <br/> Erreiche mit unseren Supplements bester Qualität deine
               Fitnesssziele.<br/><br/>  ✓  Faire Preise <br/> ✓ VERSANDKOSTENFREI bestellen <br/>✓ Lieferung 
-              innerhalb von 1-2 Tagen 
+              innerhalb von 2-3 Tagen 
             </p>
           </div>
         </div>
@@ -32,7 +32,7 @@ const FooterCustom: React.FC = () => {
               <FaInstagram size={24} />
             </a>
           </div>
-          <p className="text-sm text-gray-500">© 2024, ZNutrition</p>
+          <p className="text-sm text-gray-500">© 2024, Z-NUTRITION</p>
         </div>
       
       </div>

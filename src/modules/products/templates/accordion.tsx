@@ -11,7 +11,7 @@ type RelatedProductsProps = {
   countryCode: string
 }
 
-export default async function ProductNutritions2({
+export default async function ProductDetails({
   product,
   countryCode,
 }: RelatedProductsProps) {
@@ -62,17 +62,15 @@ export default async function ProductNutritions2({
   }
 
   return (
-    <div className=" bg-white">
-  
+    <div className="flex flex-col md:flex-row gap-x-12 ">
 
-      <ul className="">
-       
-<ProductNutritions product={product} countryCode={countryCode} />
 
-      </ul>
-
-      <AccordionDetails />
-
+    <div className="md:w-1/2 ">
+      <ProductNutritions product={product} countryCode={countryCode} />
+      </div> 
+      <div className="md:w-1/2 mt-8 sm:mt-0">
+      <AccordionDetails  product={product}  countryCode={countryCode} />
+      </div> 
     </div>
   )
 }

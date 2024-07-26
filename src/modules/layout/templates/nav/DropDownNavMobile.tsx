@@ -72,7 +72,7 @@ const navigation = {
           {
             id: 'accessories',
             name: 'Proteine ',
-            href: '/collections/proteine',
+            href: '/at/cat-proteine',
             items: [
               { name: 'Hydro Whey Vanille Eis', href: '/products/hydro-whey-vanille-eis'},
               { name: 'Hydro Whey Banane', href: '/products/hydro-whey-isolate-banane'},
@@ -82,7 +82,7 @@ const navigation = {
           {
             id: 'clothing',
             name: 'Vitalstoffe ',
-            href: '/collections/vitalstoffe',
+            href: '/at/cat-vitalstoffe',
             items: [
               { name: 'Magensium', href: '/products/magnesium-citrate' },
               { name: 'Omega 3', href: '/products/Omega3softgels' },

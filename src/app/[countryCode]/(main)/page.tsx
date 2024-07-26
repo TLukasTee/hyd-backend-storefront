@@ -3,7 +3,6 @@ import { Metadata } from "next"
 
 import { getCollectionsList, getProductsList, getRegion } from "@lib/data"
 import FeaturedProducts from "@modules/home/components/featured-products"
-import Hero from "@modules/home/components/hero"
 import { ProductCollectionWithPreviews } from "types/global"
 import { cache } from "react"
 import Divider from "@modules/customcomponents/Divider"
@@ -14,7 +13,7 @@ import ZNAthletes from "@modules/customcomponents/Athletes"
 import FAQ from "@modules/customcomponents/FAQ"
 
 export const metadata: Metadata = {
-  title: "ZNUTRITION - AUSTRIA",
+  title: "Z-NUTRITION - AUSTRIA",
   description:
     "Die besten Supplements aus Österreich.",
 }
@@ -75,16 +74,15 @@ export default async function Home({
   return (
     <>
 
-           <HeroCustom />
+      <HeroCustom />
       <Divider />
-      <HeroBanner  />
-      <ul className="flex flex-col gap-x-6 bg-white">
+      <HeroBanner />
+      <div className="container mx-auto max-w-7xl px-8"> 
       <FeaturedProducts specificCollectionId="pcol_01J35N9DE9J4XH9BQZMQ82SW34" collections={collections} region={region} />
-      </ul>
-    
+      </div>
       <Outlet />
-        <ZNAthletes />
-        <FAQ />
+      <ZNAthletes />
+      <FAQ />
     </>
   )
 }

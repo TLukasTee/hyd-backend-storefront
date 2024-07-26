@@ -20,7 +20,7 @@ const Register = ({ setCurrentView }: Props) => {
     <div className="max-w-lg mx-auto sm:ml-28 flex flex-col items-center">
       
       <h1 className="text-large-semi  font-bold sm:text-xl uppercase mb-6">
-        Werde ein ZNUTRITION Mitglied!
+        Werde ein Z-NUTRITION Mitglied!
        
       </h1>
       <p className="text-center text-base-regular text-sm text-ui-fg-base mb-4">

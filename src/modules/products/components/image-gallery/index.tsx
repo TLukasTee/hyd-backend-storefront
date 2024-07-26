@@ -3,6 +3,7 @@ import { Image as MedusaImage } from "@medusajs/medusa"
 import { Container } from "@medusajs/ui"
 import Image from "next/image"
 import React, { useState, useRef, useEffect } from "react"
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 
 type ImageGalleryProps = {
   images: MedusaImage[]
@@ -42,26 +43,49 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   }, [])
 
   return (
-    <Container className="flex flex-col">
-      {/* Main image with swipe functionality */}
-      <div 
-        className="relative w-full h-[300px] md:h-[400px] mb-2"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <Image
-          src={images[currentIndex].url}
-          alt={`Product image ${currentIndex + 1}`}
-          className="object-cover"
-          fill
-          sizes="100vw"
-          priority={currentIndex === 0}
-        />
+    <div className="flex flex-col">
+      <div className="flex">
+        <div className="hidden  md:flex flex-col space-y-4">
+          {images.slice(0, 4).map((image, index) => (
+            <button
+              key={index}
+              className={`relative w-24 h-24 ${
+                index === currentIndex ? ' border-gray-900' : 'border border-gray-200'
+              }`}
+              onClick={() => setCurrentIndex(index)}
+            >
+              <Image
+                src={image.url}
+                alt={`Thumbnail ${index + 1}`}
+                quality={100}
+                className={` object-cover ${
+                  index === currentIndex ? 'border   border-gray-100' : 'border  border-gray-100'
+                }`}
+                fill
+              />
+            </button>
+          ))}
+        </div>
+        <div className="relative flex-grow">
+          <div 
+            className="relative w-full h-[300px] md:h-[500px] sm:right-4 "
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <Image
+              src={images[currentIndex].url}
+              alt={`Product image ${currentIndex + 1}`}
+              className="object-contain"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority={currentIndex === 0}
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Pagination dots for mobile */}
-      <div className="flex justify-center space-x-2 md:hidden">
+      <div className="flex justify-center space-x-2 mt-4 md:hidden">
         {images.map((_, index) => (
           <div
             key={index}
@@ -71,30 +95,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           />
         ))}
       </div>
-
-      {/* Thumbnails for desktop */}
-      <div className="hidden md:grid grid-cols-4 gap-2 mt-10">
-        {images.map((image, index) => (
-          <button
-            key={index}
-            className={`relative aspect-square ${
-              index === currentIndex ? 'rounded-xl' : ''
-            }`}
-            onClick={() => setCurrentIndex(index)}
-          >
-            <Image
-              src={image.url}
-              alt={`Thumbnail ${index + 1}`}
-              className={`relative aspect-square ${
-                index === currentIndex ? 'rounded-xl ring-2 ring-gray-800' : ''
-              }`}
-              fill
-              sizes="(max-width: 768px) 100vw, 25vw"
-            />
-          </button>
-        ))}
-      </div>
-    </Container>
+    </div>
   )
 }
 

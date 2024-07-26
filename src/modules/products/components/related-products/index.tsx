@@ -62,7 +62,7 @@ export default async function RelatedProducts({
 
   return (
     <div className="product-page-constraint bg-white ">
-      <div className="flex flex-col items-start text-start mb-3 px-4">
+      <div className="flex flex-col items-start text-start mb-3">
         <span className="text-xl font-bold text-gray-800 mb-2">
         Mehr passende Produkte für dich
 
@@ -70,7 +70,7 @@ export default async function RelatedProducts({
      
       </div>
 
-      <ul className="grid grid-cols-1 px-4 sm:px-0 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
+      <ul className="grid grid-cols-1  sm:px-0 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
         {productPreviews.map((productPreview) => (
           <li key={productPreview.id}>
             <ProductPreview region={region} productPreview={productPreview} />

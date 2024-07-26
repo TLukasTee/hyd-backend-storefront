@@ -16,7 +16,7 @@ const isCart = (obj: any): obj is Omit<Cart, "refundable_amount" | "refunded_tot
   return 'payment_sessions' in obj;
 }
 
-const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
+const CartTotalsMain: React.FC<CartTotalsProps> = ({ data }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const { total, subtotal, items, shipping_total } = data;
 
@@ -42,28 +42,14 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
   return (
-    <div className="bg-gray-100  border-gray-300 rounded-xl p-4 px-8">
-      <div 
-        className="flex justify-between items-center p-4 cursor-pointer "
-        onClick={toggleCollapse}
-      >
-        <div className="flex items-center">
-          <ShoppingCartIcon className="mr-2 w-5 h-auto" />
-          <span className="font-semibold">
-            Bestellübersicht {isCollapsed ? "anzeigen" : "verbergen"}
-          </span>
-          {isCollapsed ? <ChevronDownIcon className="ml-2 w-5 h-auto" /> : <ChevronUpIcon className="ml-2 w-5 h-auto" />}
-        </div>
-        <span className="font-semibold"> {isCollapsed ? getAmount(total) : ""}</span>
-      </div>
+    <div className="bg-gray-100  border-gray-300 rounded-xl ">
+     
       
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isCollapsed ? 'max-h-0' : 'max-h-[1000px]'}`}>
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out `}>
         <div className="p-4">
           {isCart(data) && <CartPrewiewImage cart={data} />}
           
-          <div className="mt-4 ">
-            {isCart(data) && <DiscountCodeSection cart={data} />}
-          </div>
+         
           
           <div className="mt-4 space-y-2">
             <div className="flex justify-between">
@@ -101,4 +87,4 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
   );
 }
 
-export default CartTotals;
+export default CartTotalsMain;

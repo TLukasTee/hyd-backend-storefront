@@ -21,8 +21,8 @@ export default async function FeaturedProducts({
   // console.log(collections.map(c => ({ id: c.id, title: c.title })));
 
   return (
-    <li key={specificCollection.id}>
+    <div className="" >
       <ProductRail collection={specificCollection} region={region} />
-    </li>
+    </div>
   )
 }

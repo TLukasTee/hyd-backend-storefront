@@ -7,6 +7,7 @@ import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
 
 import ChevronDown from "@modules/common/icons/chevron-down"
+import { Text } from "@medusajs/ui"
 
 type ProductTabsProps = {
   product: PricedProduct
@@ -20,6 +21,12 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       component: <ShippingInfoTab />,
     },
   ]
+  const metadata = product.metadata || {}
+
+  const getValue = (key: string): string | null => {
+    const value = metadata[key]
+    return typeof value === 'string' ? value : null
+  }
 
   return (
     <div className="w-full">
@@ -28,15 +35,27 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
        
   <div className="">
   
-  <label className="block text-sm font-medium mb-1 text-neutral-800">Geschmack</label>
-  <div className="relative bg-white">
-    <select className="w-full p-2 rounded-md border-2 appearance-none bg-white text-black">
-      <option>{product.material ? product.material : "Neutral"}</option>
+  <label className="block text-base font-medium mb-1 text-neutral-800">Geschmack</label>
+  <div className="relative bg-white text-xl font-semibold">
+    <select className="w-full p-2 rounded-md border-2 py-2 pl-5  border-black appearance-none bg-white text-black">
+      <option className="text-xl font-bold">{product.material ? product.material : "Neutral"}</option>
     </select>
     <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 text-black" />
   </div>
-</div>
 
+  
+</div>
+<div className="mt-5">
+  
+  <label className="block text-base font-medium mb-1 text-neutral-800">Inhaltsgröße</label>
+  <div className="relative bg-white">
+    <div className="w-full text-center justify-center  p-2 py-4 rounded-md border-2 border-black appearance-none bg-white text-black">
+      <Text className="text-lg font-semibold">{getValue('product_size')}</Text>
+    </div>
+  </div>
+
+  
+</div>
 {/* <div className="mb-4">
   <label className="block text-sm font-medium mb-1">Inhaltsgröße</label>
   <div className="relative">
@@ -55,8 +74,10 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
   </div>
 ) : null}
 </div>
-      {/* <Accordion type="multiple" className="mb-4">
-        {tabs.map((tab, i) => (
+
+{/* 
+<Accordion type="multiple" className="mb-4">
+  {tabs.map((tab, i) => (
           <Accordion.Item
             key={i}
             title={tab.label}

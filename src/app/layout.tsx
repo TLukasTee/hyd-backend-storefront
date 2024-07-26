@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 import { Lato} from "next/font/google";
 import { Inter } from "next/font/google";
+import { Cabin } from "next/font/google";
 
 const monts = Lato({  weight: ['400', '700', '900'],
 subsets: ['latin'], });
@@ -18,6 +19,9 @@ const fontHeading = Inter({
   display: 'swap',
   variable: '--font-heading',
 })
+
+
+
 
 const fontBody = Inter({
   subsets: ['latin'],

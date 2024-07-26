@@ -25,26 +25,28 @@ const Hit = ({ hit }: HitProps) => {
       href={`/products/${hit.handle}`}
       data-testid="search-result"
     >
-      <Container
+      <div
         key={hit.id}
-        className="flex sm:flex-col gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover items-center sm:justify-center"
+        className="flex sm:flex-col gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover justify-between items-between sm:justify-between bg-white rounded-3xl py-6 px-8"
       >
         <Thumbnail
           thumbnail={hit.thumbnail}
           size="square"
-          className="group h-12 w-12 sm:h-full sm:w-full "
+          className="group h-24 w-24 sm:h-full sm:w-full "
         />
-        <div className="flex flex-col justify-between group">
-          <div className="flex flex-col">
+        <div className="flex flex-col justify-right group">
+          <div className="flex flex-col  justify-right">
             <Text
-              className="text-ui-fg-subtle"
+              className="font-bold text-base sm:text-xl items-center text-center justify pt-8"
               data-testid="search-result-title"
             >
               {hit.title}
+              
             </Text>
+            
           </div>
         </div>
-      </Container>
+      </div>
     </LocalizedClientLink>
   )
 }

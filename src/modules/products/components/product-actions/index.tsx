@@ -153,7 +153,7 @@ export default function ProductActions({
           onClick={handleAddToCart}
           disabled={!inStock || !variant}
           variant="transparent"
-          className="w-full bg-red-600 text-lg max-h-14 text-white border-2 rounded-full hover:bg-red-700 py-2.5  font-bold mb-4 shadow-0 outline-0  "
+          className="w-full bg-red-600 oultine-0 border-0  text-lg max-h-14 text-white rounded-full hover:bg-red-700 py-2.5  font-bold mb-4 shadow-0 outline-0  "
           isLoading={isAdding}
         >            
 

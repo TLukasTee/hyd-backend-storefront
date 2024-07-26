@@ -1,8 +1,8 @@
-import { EllipseMiniSolid } from "@medusajs/icons"
-import { Label, RadioGroup, Text, clx } from "@medusajs/ui"
-import { ChangeEvent } from "react"
+import React, { useState } from 'react'
+import { Label, Text } from "@medusajs/ui"
+import { ChevronDownIcon } from '@heroicons/react/24/outline'
 
-type FilterRadioGroupProps = {
+type FilterDropdownProps = {
   title: string
   items: {
     value: string
@@ -13,56 +13,45 @@ type FilterRadioGroupProps = {
   'data-testid'?: string
 }
 
-const FilterRadioGroup = ({
+const FilterDropdown = ({
   title,
   items,
   value,
   handleChange,
   'data-testid': dataTestId
-}: FilterRadioGroupProps) => {
+}: FilterDropdownProps) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const currentLabel = items.find(item => item.value === value)?.label || "Ausgewählt"
+
   return (
-    <div className="flex gap-x-3 flex-col gap-y-3">
-      <Text className="txt-compact-small-plus text-ui-fg-muted">{title}</Text>
-      <RadioGroup data-testid={dataTestId}>
-        {items?.map((i) => (
-          <div
-            key={i.value}
-            className={clx("flex gap-x-2 items-center", {
-              "ml-[-1.75rem]": i.value === value,
-            })}
-          >
-            {i.value === value && <EllipseMiniSolid />}
-            <RadioGroup.Item
-              checked={i.value === value}
-              onClick={(e) =>
-                handleChange(
-                  e as unknown as ChangeEvent<HTMLButtonElement>,
-                  i.value
-                )
-              }
-              className="hidden peer"
-              id={i.value}
-              value={i.value}
-            />
+    <div className="relative" data-testid={dataTestId}>
+      <Text className="txt-compact-small-plus text-ui-fg-muted mb-2">{title}</Text>
+      <button
+        className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-white"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span>{currentLabel}</span>
+        <ChevronDownIcon className="w-5 h-5 ml-2" />
+      </button>
+      {isOpen && (
+        <div className="absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg">
+          {items.map((item) => (
             <Label
-              placeholder={i.label}
-              htmlFor={i.value}
-              className={clx(
-                "!txt-compact-small !transform-none text-ui-fg-subtle hover:cursor-pointer",
-                {
-                  "text-ui-fg-base": i.value === value,
-                }
-              )}
-              data-testid="radio-label"
-              data-active={i.value === value}
+              key={item.value}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+              onClick={() => {
+                handleChange(item.value)
+                setIsOpen(false)
+              }}
             >
-              {i.label}
+              {item.label}
             </Label>
-          </div>
-        ))}
-      </RadioGroup>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
 
-export default FilterRadioGroup
+export default FilterDropdown

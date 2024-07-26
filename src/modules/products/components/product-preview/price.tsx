@@ -16,7 +16,15 @@ export default async function PreviewPrice({ price }: { price: PriceType }) {
           "text-ui-fg-interactive": price.price_type === "sale",
         })}
       > 
-      <span className="font-bold text-black  text-2xl">   {price.calculated_price} </span>
+      
+   
+      <span className="font-bold text-black  text-2xl">   {price.calculated_price} 
+ 
+      <span className="line-through text-ui-fg-muted inline-flex text-lg ml-2" data-testid="original-price">
+          {price.original_price}
+        </span>
+
+      </span>
       </Text>
     </>
   )

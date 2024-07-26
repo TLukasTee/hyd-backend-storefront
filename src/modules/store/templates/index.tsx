@@ -18,20 +18,21 @@ const StoreTemplate = ({
   const pageNumber = page ? parseInt(page) : 1
 
   return (
-    <div className="flex flex-col small:flex-row small:items-start mx-auto max-w-7xl px-8 sm:px-12 lg:px-8 " data-testid="category-container">
-      <RefinementList sortBy={sortBy || "created_at"} />
-      <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">Alle Produkte</h1>
-        </div>
-        <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sortBy || "created_at"}
-            page={pageNumber}
-            countryCode={countryCode}
-          />
-        </Suspense>
-      </div>
+
+
+    <div className=" mx-auto max-w-7xl px-7 sm:static sm:px-6 lg:px-10">
+      <h1 className="font-bold text-base sm:text-2xl">Alle Produkte</h1>
+
+      <RefinementList sortBy={sortBy || "price_desc"} />
+
+      <Suspense fallback={<SkeletonProductGrid />}>
+        <PaginatedProducts
+          sortBy={sortBy || "price_desc"}
+          page={pageNumber}
+          countryCode={countryCode}
+        />
+      </Suspense>
+
     </div>
   )
 }
