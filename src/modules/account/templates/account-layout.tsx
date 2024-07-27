@@ -4,6 +4,7 @@ import UnderlineLink from "@modules/common/components/interactive-link"
 
 import AccountNav from "../components/account-nav"
 import { Customer } from "@medusajs/medusa"
+import Link from "next/link"
 
 interface AccountLayoutProps {
   customer: Omit<Customer, "password_hash"> | null
@@ -21,19 +22,7 @@ const AccountLayout: React.FC<AccountLayoutProps> = ({
           <div>{customer && <AccountNav customer={customer} />}</div>
           <div className="flex-1">{children}</div>
         </div>
-        <div className="flex flex-col small:flex-row items-end justify-between small:border-t border-gray-200 py-12 gap-8">
-          <div>
-            <h3 className="text-xl-semi mb-4">Hast du Fragen?</h3>
-            <span className="txt-medium">
-              
-            </span>
-          </div>
-          <div>
-            <UnderlineLink href="/agbs">
-             Kunden Support
-            </UnderlineLink>
-          </div>
-        </div>
+       
       </div>
     </div>
   )

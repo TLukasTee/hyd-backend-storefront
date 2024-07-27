@@ -41,7 +41,7 @@ const kontakt = () => {
               <PhoneIcon className="w-8 h-8 text-red-600 mr-4" />
               <div>
                 <h3 className="text-xl font-semibold">Telefon</h3>
-                <p className="sm:text-lg  text-base text-gray-600">+43 6702024825</p>
+                <a className="sm:text-lg  text-base text-gray-600" href="tel:+436765108888">+43 676 5108888</a>
               </div>
             </div>
 
@@ -49,7 +49,7 @@ const kontakt = () => {
               <LuMail className="w-8 h-8 text-red-600 mr-4" />
               <div>
                 <h3 className="text-xl font-semibold">E-Mail</h3>
-                <p className="sm:text-lg  text-base text-gray-600">office@z-nutrition.at</p>
+                <a className="sm:text-lg  text-base text-gray-600" href="mailto:office@z-nutrition.at">office@z-nutrition.at</a>
               </div>
             </div>
 

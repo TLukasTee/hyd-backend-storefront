@@ -40,8 +40,8 @@ const AccountNav = ({
           </LocalizedClientLink>
         ) : (
           <>
-            <div className="text-xl-semi mb-4 px-8">
-              Hallo {customer?.first_name}!
+            <div className="text-xl mb-4 px-8">
+              Hallo <span className="font-semibold">{customer?.first_name}</span>!
             </div>
             <div className="text-base-regular">
               <ul>

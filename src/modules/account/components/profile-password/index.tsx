@@ -44,19 +44,19 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
       >
         <div className="grid grid-cols-2 gap-4">
           <Input
-            label="Old password"
+            label="Altes Passwort"
             name="old_password"
             required
             type="password"
           />
           <Input
-            label="New password"
+            label="Neues Passwort"
             type="password"
             name="new_password"
             required
           />
           <Input
-            label="Confirm password"
+            label="Passwort bestätigen"
             type="password"
             name="confirm_password"
             required

@@ -41,7 +41,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
       >
         <div className="grid grid-cols-1 gap-y-2">
           <Input
-            label="Phone"
+            label="Telefonnummer"
             name="phone"
             type="phone"
             autoComplete="phone"
