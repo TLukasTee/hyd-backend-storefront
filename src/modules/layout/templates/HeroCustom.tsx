@@ -31,8 +31,7 @@ export default function HeroCustom() {
             </h1>
 
             <p className="dark:text-neutral-800 text-neutral-800">
-              Unser hochwertiges Protein unterstützt Sie optimal bei Ihrem Muskelaufbau und Ihrer Regeneration. Von Whey-Protein bis zu einer breiten Auswahl an Vitalstoffen –
-              bei Z-Nutrition finden Sie genau das, was Sie brauchen.                </p>
+            Unser hochwertiges Protein unterstützt dich optimal bei deinem Muskelaufbau und deiner Regeneration. Von Whey-Protein bis zu einer breiten Auswahl an Vitalstoffen – bei Z-Nutrition findest du genau das, was du brauchst.               </p>
           </div>
           <div>
             <div className="mt-10">

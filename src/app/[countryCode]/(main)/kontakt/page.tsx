@@ -33,7 +33,7 @@ const kontakt = () => {
         <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-12">
           <h2 className="sm:text-3xl  text-xl font-bold mb-6 text-center">24/7 Support</h2>
           <p className="sm:text-xl  text-base text-gray-600 mb-8 text-center">
-            Wir sind rund um die Uhr für Sie da. Zögern Sie nicht, uns zu kontaktieren!
+            Wir sind rund um die Uhr für dich da. Zöger nicht, uns zu kontaktieren!
           </p>
 
           <div className="space-y-6">
@@ -64,7 +64,7 @@ const kontakt = () => {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-600">
-              Unser engagiertes Team steht Ihnen jederzeit zur Verfügung, um all Ihre Fragen zu beantworten und Ihnen bei Ihren Anliegen zu helfen.
+              Unser engagiertes Team steht dir jederzeit zur Verfügung, um all deine Fragen zu beantworten und dir bei deinen Anliegen zu helfen.
             </p>
           </div>
         </div>

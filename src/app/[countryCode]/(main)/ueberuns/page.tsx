@@ -3,9 +3,9 @@ import Image from 'next/image';
 
 const athletes = [
   {
-    name: "Murga",
+    name: "Muriz Izmirlija",
     title: "Ehemaliger Fußballprofi & MMA Coach",
-    description: "Murga ist ein ehemaliger Fußballprofi und hat 2019 den dritten Platz im Bodybuilding in Holland belegt. Heute ist er ein angesehener Online-Coach für MMA, der UFC-, PFL- und GLORY-Athleten trainiert und begleitet. Mit seiner langjährigen Erfahrung und seinem umfassenden Wissen hilft er Athleten, ihre Ziele zu erreichen und ihre Leistung kontinuierlich zu verbessern.",
+    description: "Muriz ist ein ehemaliger Fußballprofi und hat 2019 den dritten Platz im Bodybuilding in Holland belegt. Heute ist er ein angesehener Online-Coach für MMA, der UFC-, PFL- und GLORY-Athleten trainiert und begleitet. Mit seiner langjährigen Erfahrung und seinem umfassenden Wissen hilft er Athleten, ihre Ziele zu erreichen und ihre Leistung kontinuierlich zu verbessern.",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429579/361397238_634129768456543_7192542947895908387_n_o5qpp8.jpg",
   },
   {
