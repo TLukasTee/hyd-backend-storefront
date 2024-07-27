@@ -2,7 +2,7 @@ import React from 'react';
 
 const zahlungundversand: React.FC = () => {
   return (
-    <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  pb-12 pt-44">
+    <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-12  pb-12 pt-12">
       <h1 className="text-3xl font-bold mb-6">Zahlungs- und Versandinformationen</h1>
       
       <section className="mb-8">

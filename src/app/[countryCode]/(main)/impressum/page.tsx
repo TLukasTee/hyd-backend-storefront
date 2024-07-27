@@ -2,8 +2,8 @@ import React from 'react';
 
 const impressum: React.FC = () => {
   return (
-    <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  pb-12 pt-44">
-      <h1 className="text-3xl font-bold mb-6">Impressum</h1>
+    <div className=" mx-auto max-w-7xl px-4 sm:px-6 lg:px-12  pb-12 pt-12">
+      <h1 className="text-3xl font-bold mb-6 text-red-500">Impressum</h1>
       
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Angaben gemäß § 5 TMG</h2>
@@ -21,7 +21,7 @@ const impressum: React.FC = () => {
       
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Vertreten durch</h2>
-        <p>Geschäftsführer: Haumand Altalbani</p>
+        <p>Inhaber: Haumand Altalbani</p>
       </section>
       
      

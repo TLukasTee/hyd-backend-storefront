@@ -14,7 +14,7 @@ const athletes: Athlete[] = [
 
     {
         id: 1,
-        name: "Demir Hardzic",
+        name: "Demir Hadzic",
         username: "@hadzicdemir",
         image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429148/412654386_644371004344040_7758380307718690296_n_q6f3td.jpg",
         profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429147/427246196_268943016227429_8143471376347351648_n_wcz7ph.jpg",
@@ -32,14 +32,14 @@ const athletes: Athlete[] = [
   {
     id: 2,
     name: "Magomed Arsaev",
-    username: "mag.arsaev",
+    username: "@mag.arsaev",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719428345/425679073_17924609243835560_4696942332228121857_n_upbdap.jpg",
     profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719428345/425679073_17924609243835560_4696942332228121857_n_upbdap.jpg",
     instagramUrl: "https://www.instagram.com/mag.arsaev/"
   },
   {
     id: 4,
-    name: "Muris Izmirlija",
+    name: "Muriz Izmirlija",
     username: "@murga____",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429579/361397238_634129768456543_7192542947895908387_n_o5qpp8.jpg",
     profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429579/361397238_634129768456543_7192542947895908387_n_o5qpp8.jpg",

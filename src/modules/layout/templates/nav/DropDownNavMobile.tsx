@@ -105,8 +105,8 @@ const navigation = {
     ],
     pages: [
   
-      { name: 'Über Uns', href: '/' },
-      { name: 'Kontakt', href: '/' },
+      { name: 'Über Uns', href: '/ueberuns' },
+      { name: 'Kontakt', href: '/kontakt' },
     ],
   }
 export default function DropdownNavMobile() {
