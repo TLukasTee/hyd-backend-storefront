@@ -23,8 +23,7 @@ const transformProductPreview = (
     }, variants[0])
   }
   const proteinValue = product.metadata?.proteinvalue;
-  console.log("Metadata:", product.metadata);
-  console.log("Protein Value:", proteinValue);
+
   return {
     id: product.id!,
     title: product.title!,

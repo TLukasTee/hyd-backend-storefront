@@ -55,8 +55,6 @@ export default async function ProductNutritions({
      
         ]
       }
-      console.log("Product Type:", product.metadata?.productType);
-
     // Default fallback if product type is not recognized
     return []
   }

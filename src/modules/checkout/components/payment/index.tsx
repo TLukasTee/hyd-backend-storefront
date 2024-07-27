@@ -36,8 +36,12 @@ const Payment = ({
   const isStripe = cart?.payment_session?.provider_id === "stripe"
   const stripeReady = useContext(StripeContext)
 
+  const paidByGiftcard =
+    cart?.gift_cards && cart?.gift_cards?.length > 0 && cart?.total === 0
+
   const paymentReady =
-    cart?.payment_session && cart?.shipping_methods.length !== 0
+    (cart?.payment_session && cart?.shipping_methods.length !== 0) ||
+    paidByGiftcard
 
   const useOptions: StripeCardElementOptions = useMemo(() => {
     return {
@@ -100,104 +104,127 @@ const Payment = ({
   }, [isOpen])
 
   return (
-    <div className="bg-white text-neutral-800">
+    <div className="bg-white">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"
           className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline text-neutral-800",
+            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
             {
               "opacity-50 pointer-events-none select-none":
                 !isOpen && !paymentReady,
             }
           )}
         >
-          Zahlung
-          {!isOpen && paymentReady && <CheckCircleSolid className="relative top-1" />}
+          Payment
+          {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && paymentReady && (
           <Text>
             <button
               onClick={handleEdit}
-              className=" hover:bg-gray-300 bg-gray-200 px-4 py-1.5 text-black rounded-2xl"
+              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              data-testid="edit-payment-button"
             >
-              Ändern
+              Edit
             </button>
           </Text>
         )}
       </div>
       <div>
-        {cart?.payment_sessions?.length ? (
-          <div className={isOpen ? "block" : "hidden"}>
-            <RadioGroup
-              value={cart.payment_session?.provider_id || ""}
-              onChange={(value: string) => handleChange(value)}
-            >
-              {cart.payment_sessions
-                .sort((a, b) => {
-                  return a.provider_id > b.provider_id ? 1 : -1
-                })
-                .map((paymentSession) => {
-                  return (
-                    <PaymentContainer
-                      paymentInfoMap={paymentInfoMap}
-                      paymentSession={paymentSession}
-                      key={paymentSession.id}
-                      selectedPaymentOptionId={
-                        cart.payment_session?.provider_id || null
-                      }
-                    />
-                  )
-                })}
-            </RadioGroup>
-
-            {isStripe && stripeReady && (
-              <div className="mt-5 transition-all duration-150 ease-in-out">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                 Kartendetails eingeben:
-                </Text>
-
-                <CardElement
-                  options={useOptions as StripeCardElementOptions}
-                  onChange={(e) => {
-                    setCardBrand(
-                      e.brand &&
-                        e.brand.charAt(0).toUpperCase() + e.brand.slice(1)
+        <div className={isOpen ? "block" : "hidden"}>
+          {!paidByGiftcard && cart?.payment_sessions?.length ? (
+            <>
+              <RadioGroup
+                value={cart.payment_session?.provider_id || ""}
+                onChange={(value: string) => handleChange(value)}
+              >
+                {cart.payment_sessions
+                  .sort((a, b) => {
+                    return a.provider_id > b.provider_id ? 1 : -1
+                  })
+                  .map((paymentSession) => {
+                    return (
+                      <PaymentContainer
+                        paymentInfoMap={paymentInfoMap}
+                        paymentSession={paymentSession}
+                        key={paymentSession.id}
+                        selectedPaymentOptionId={
+                          cart.payment_session?.provider_id || null
+                        }
+                      />
                     )
-                    setError(e.error?.message || null)
-                    setCardComplete(e.complete)
-                  }}
-                />
-              </div>
-            )}
+                  })}
+              </RadioGroup>
+              {isStripe && stripeReady && (
+                <div className="mt-5 transition-all duration-150 ease-in-out">
+                  <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                    Enter your card details:
+                  </Text>
 
-            <ErrorMessage error={error} />
+                  <CardElement
+                    options={useOptions as StripeCardElementOptions}
+                    onChange={(e) => {
+                      setCardBrand(
+                        e.brand &&
+                          e.brand.charAt(0).toUpperCase() + e.brand.slice(1)
+                      )
+                      setError(e.error?.message || null)
+                      setCardComplete(e.complete)
+                    }}
+                  />
+                </div>
+              )}
+            </>
+          ) : paidByGiftcard ? (
+            <div className="flex flex-col w-1/3">
+              <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                Payment method
+              </Text>
+              <Text
+                className="txt-medium text-ui-fg-subtle"
+                data-testid="payment-method-summary"
+              >
+                Gift card
+              </Text>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center px-4 py-16 text-ui-fg-base">
+              <Spinner />
+            </div>
+          )}
 
-            <Button
-              size="large"
-              className="mt-6 text-white hover:bg-red-800 outline-0 border-0  bg-red-700 border-white outline-white"
-              onClick={handleSubmit}
-              isLoading={isLoading}
-              variant="transparent"
-              disabled={(isStripe && !cardComplete) || !cart.payment_session}
-            >
-              Weiter zur Gesamtübersicht
-            </Button>
-          </div>
-        ) : (
-          <div className="flex flex-col items-center justify-center px-4 py-16 text-ui-fg-base">
-            <Spinner />
-          </div>
-        )}
+          <ErrorMessage
+            error={error}
+            data-testid="payment-method-error-message"
+          />
+
+          <Button
+            size="large"
+            className="mt-6"
+            onClick={handleSubmit}
+            isLoading={isLoading}
+            disabled={
+              (isStripe && !cardComplete) ||
+              (!cart?.payment_session && !paidByGiftcard)
+            }
+            data-testid="submit-payment-button"
+          >
+            Continue to review
+          </Button>
+        </div>
 
         <div className={isOpen ? "hidden" : "block"}>
-          {cart && paymentReady && cart.payment_session && (
+          {cart && paymentReady && cart.payment_session ? (
             <div className="flex items-start gap-x-1 w-full">
-              <div className="flex flex-col w-1/3 gap-y-4">
+              <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                 Zahlungsmethode
+                  Payment method
                 </Text>
-                <Text className="txt-medium text-ui-fg-subtle">
+                <Text
+                  className="txt-medium text-ui-fg-subtle"
+                  data-testid="payment-method-summary"
+                >
                   {paymentInfoMap[cart.payment_session.provider_id]?.title ||
                     cart.payment_session.provider_id}
                 </Text>
@@ -209,11 +236,14 @@ const Payment = ({
                     <Tooltip content="You can add a user-friendly name and icon for this payment provider in 'src/modules/checkout/components/payment/index.tsx'" />
                   )}
               </div>
-              <div className="flex flex-col w-2/3 gap-y-4 ">
+              <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Zahlungsdetails
+                  Payment details
                 </Text>
-                <div className="flex gap-2 txt-medium text-ui-fg-subtle items-center">
+                <div
+                  className="flex gap-2 txt-medium text-ui-fg-subtle items-center"
+                  data-testid="payment-details-summary"
+                >
                   <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
                     {paymentInfoMap[cart.payment_session.provider_id]?.icon || (
                       <CreditCard />
@@ -222,12 +252,24 @@ const Payment = ({
                   <Text>
                     {cart.payment_session.provider_id === "stripe" && cardBrand
                       ? cardBrand
-                      : "Weiterer Schritt erforderlich"}
+                      : "Another step will appear"}
                   </Text>
                 </div>
               </div>
             </div>
-          )}
+          ) : paidByGiftcard ? (
+            <div className="flex flex-col w-1/3">
+              <Text className="txt-medium-plus text-ui-fg-base mb-1">
+                Payment method
+              </Text>
+              <Text
+                className="txt-medium text-ui-fg-subtle"
+                data-testid="payment-method-summary"
+              >
+                Gift card
+              </Text>
+            </div>
+          ) : null}
         </div>
       </div>
       <Divider className="mt-8" />
