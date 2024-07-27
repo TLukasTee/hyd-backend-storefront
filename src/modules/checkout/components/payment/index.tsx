@@ -116,17 +116,17 @@ const Payment = ({
             }
           )}
         >
-          Payment
+          Zahlungsmethode
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && paymentReady && (
           <Text>
             <button
               onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              className=" hover:bg-gray-300 bg-gray-200 px-4 py-1.5 text-black rounded-2xl"
               data-testid="edit-payment-button"
             >
-              Edit
+            Ändern
             </button>
           </Text>
         )}
@@ -159,7 +159,7 @@ const Payment = ({
               {isStripe && stripeReady && (
                 <div className="mt-5 transition-all duration-150 ease-in-out">
                   <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                    Enter your card details:
+                    Kartendetails eingeben:
                   </Text>
 
                   <CardElement
@@ -179,13 +179,13 @@ const Payment = ({
           ) : paidByGiftcard ? (
             <div className="flex flex-col w-1/3">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+                Zahlungsmethode
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Gift card
+                Gutschein
               </Text>
             </div>
           ) : (
@@ -201,7 +201,9 @@ const Payment = ({
 
           <Button
             size="large"
-            className="mt-6"
+
+            variant={"transparent"}
+            className="mt-6 bg-red-600 text-white rounded-full"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={
@@ -210,7 +212,7 @@ const Payment = ({
             }
             data-testid="submit-payment-button"
           >
-            Continue to review
+            Weiter zur Gesamtübersicht
           </Button>
         </div>
 
@@ -219,7 +221,7 @@ const Payment = ({
             <div className="flex items-start gap-x-1 w-full">
               <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment method
+                  Zahlungsmethode
                 </Text>
                 <Text
                   className="txt-medium text-ui-fg-subtle"
@@ -238,7 +240,7 @@ const Payment = ({
               </div>
               <div className="flex flex-col w-1/3">
                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment details
+                  Zahlungsdetails
                 </Text>
                 <div
                   className="flex gap-2 txt-medium text-ui-fg-subtle items-center"
@@ -252,7 +254,7 @@ const Payment = ({
                   <Text>
                     {cart.payment_session.provider_id === "stripe" && cardBrand
                       ? cardBrand
-                      : "Another step will appear"}
+                      : "Weiterer Schritt folgt"}
                   </Text>
                 </div>
               </div>
@@ -260,13 +262,13 @@ const Payment = ({
           ) : paidByGiftcard ? (
             <div className="flex flex-col w-1/3">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+                Zahluhngsmethode
               </Text>
               <Text
                 className="txt-medium text-ui-fg-subtle"
                 data-testid="payment-method-summary"
               >
-                Gift card
+                Gutschein
               </Text>
             </div>
           ) : null}
