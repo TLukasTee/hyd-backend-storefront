@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import "styles/globals.css"
+import { Analytics } from '@vercel/analytics/react';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:8000"
 
@@ -34,6 +35,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="de" data-mode="light">
       <body>
         <main className={`${fontHeading.className} relative bg-white `}>{props.children}</main>
+        <Analytics />
       </body>
     </html>
   )
