@@ -109,7 +109,7 @@ const CartDropdown = ({
                     </div>
                     <p className="text-sm text-gray-500 mt-2">
                       {remainingForFreeShipping > 0
-                        ? ` zzgl. Versandkosten: 6,00€`
+                        ? ` zzgl. Versandkosten: 8,00€`
                         : ""}
                     </p>
                   </div>

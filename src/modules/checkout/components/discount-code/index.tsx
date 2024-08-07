@@ -50,7 +50,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
       <form action={formAction} className="w-full">
         <div className="flex w-full items-center ">
                   <Input
-                    label="Rabattcode oder Geschenkgutschein"
+                    label="Rabattcode"
                     name="code"
                     type="text"
                     autoFocus={false}

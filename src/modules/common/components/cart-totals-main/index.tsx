@@ -73,8 +73,8 @@ const CartTotalsMain: React.FC<CartTotalsProps> = ({ data }) => {
           {totalSavings > 0 && (
             <div className="mt-2 flex justify-between text-ui-fg-interactive">
                 <div className="gap-x-3 flex justify-start text-ui-fg-interactive">
-              <TagIcon className="w-5 h-auto inline-flex text-black" />
-              <span className='text-black tracking-wide text-base '>GESAMTERSPARNISSE</span>
+          
+              <span className='text-black tracking-wide text-base '>GESAMTERSPARNIS</span>
               </div>
               <span className='text-red-600 font-semibold'>{getAmount(totalSavings)} ({savingsPercentage}%)</span>
             </div>
