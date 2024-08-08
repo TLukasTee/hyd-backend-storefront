@@ -20,7 +20,7 @@ const Outlet: React.FC = () => {
           <div className="absolute inset-0 sm:bg-gradient-to-r bg-gradient-to-b from-black/10 to-transparent flex items-center justify-center">
             <div className="text-white text-center bg-gray-400/80  border-2 border-white p-4 rounded-2xl   relative">
               <p className="text-3xl md:text-4xl lg:text-5xl font-bold ">BIS ZU</p>
-              <p className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-red-600">-17%</p>
+              <p className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-red-600">-15%</p>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Outlet: React.FC = () => {
           </div>
           <div className="text-white mb-10">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-center">RABATT</h2>
-            <p className="text-lg md:text-xl mb-4 text-center  font-bold">-17% auf Premium-Supplements</p>
+            <p className="text-lg md:text-xl mb-4 text-center  font-bold">-15% auf Premium-Supplements</p>
             <a href="/store"> 
             <button className="bg-red-600  text-white text-center flex justify-center items-center mx-auto text-black font-bold py-2 px-6 rounded-full hover:bg-red-700 transition duration-300">
               JETZT BESTELLEN

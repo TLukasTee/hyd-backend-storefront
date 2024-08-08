@@ -77,7 +77,7 @@ export default async function ProductPreview({
         </div>
         <div className="absolute top-2 left-3 bg-red-600 outline-2 text-white text-xs font-bold px-2 py-1.5 rounded-full flex">
           <TagIcon className="h-5 w-5  flex-inline relative text-white" />
-          <div className=" flex-inline ml-1 text-[14px] mt-0.5 tracking-tighter"> -17%    </div>
+          <div className=" flex-inline ml-1 text-[14px] mt-0.5 tracking-tighter"> -15%    </div>
         </div>
         <div className="mt-4 flex justify-between">
           <div>
