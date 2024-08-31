@@ -45,6 +45,34 @@ const athletes: Athlete[] = [
     profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719429579/361397238_634129768456543_7192542947895908387_n_o5qpp8.jpg",
     instagramUrl: "https://www.instagram.com/murga____/"
   },
+  {
+    id: 5,
+    name: "Amar Licina",
+    username: "@amko.lcn",
+    image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725095458/nefz0rsefihobnsw3f3r.jpg",
+    profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725095458/nefz0rsefihobnsw3f3r.jpg",
+    instagramUrl: "https://www.instagram.com/amko.lcn/"
+  },
+
+  {
+    id: 7,
+    name: "Arian Sadiković",
+    username: "@ariansadikovic",
+    image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725096356/Arian_Sadokovic-hero-1200x1165-1-600x583_dfrgqt.jpg",
+    profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725096356/Arian_Sadokovic-hero-1200x1165-1-600x583_dfrgqt.jpg",
+    instagramUrl: "https://www.instagram.com/ariansadikovic/",
+  },
+
+  {
+    id: 6,
+    name: "Erwin Zulic",
+    username: "@airwin_11_",
+    image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725111217/image00001_gz6yst.jpg",
+    profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725095271/batr4rhm3zk67kmthnyf.jpg",
+    instagramUrl: "https://www.instagram.com/airwin_11_/",
+  },
+
+  
   
 ];
 
@@ -85,9 +113,16 @@ const ZNAthletes: React.FC = () => {
                     alt=""
                   />  Athleten</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 pt-6 sm:pt-0  p-5 ">
-          {athletes.map(athlete => (
-            <AthleteCard key={athlete.id} athlete={athlete} />
-          ))}
+        {athletes.slice(0, 4).map(athlete => (
+              <AthleteCard key={athlete.id} athlete={athlete} />
+            ))}
+           
+             {athletes.slice(4, 7).map(athlete => (
+          
+              <AthleteCard key={athlete.id} athlete={athlete} />
+       
+            ))}
+        
         </div>
       </div>
     </div>
