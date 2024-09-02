@@ -25,6 +25,24 @@ const athletes = [
     title: "Kampfsportler & MMA-Staatsmeister",
     description: "Magomed, der Zwillingsbruder von Akhmed, ist ebenfalls seit seinem vierten Lebensjahr im Kampfsport aktiv. Er ist mehrfacher Staats-, Landes- und Bundesmeister im Ringen und hat internationale Siege im Sambo errungen. In der BJJ Gi- und no Gi-Kategorie hat er Goldmedaillen gewonnen. Als MMA-Staatsmeister im Amateurbereich hat auch Magomed eine bemerkenswerte sportliche Laufbahn hinter sich und herausragende Zukunftsaussichten.",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719428345/425679073_17924609243835560_4696942332228121857_n_upbdap.jpg",
+  },
+  {
+    name: "Erwin Zulic",
+    title: "ehemaliger Basketballprofi und Nationalspieler",
+    description: "rwin Zulic ist ein ehemaliger Basketballprofi und Nationalspieler, der seine Leidenschaft für den Sport mit umfangreichem Fachwissen verbindet. Durch seine langjährige, internationale Erfahrung auf professionellem Niveau ist er heute ein engagierter Coach und Mentor, der junge Talente dabei unterstützt, ihre sportlichen und mentalen Ziele zu erreichen. Mit seinem besonderen Interesse an Ernährungs- und Sportwissenschaften bietet Erwin umfassendes Wissen und individuelle Betreuung an. Besonders liegt ihm die Förderung von Kindern und Jugendlichen im Basketball am Herzen; dabei unterstützt er nicht nur ihre sportliche Leistung, sondern auch ihre persönliche Entwicklung. Erwin Zulic möchte sich im Bereich Sport- und Mental-Coaching weiter etablieren und Athleten dabei helfen, ihre Visionen zu verwirklichen.",
+    image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725111217/image00001_gz6yst.jpg",
+  },
+  {
+    name: "Amar Licina",
+    title: "Kampfsportler & MMA-Staatsmeister",
+    description: "Amar Licina begann im Alter von acht Jahren beim WBC mit dem Basketballspielen. Witzigerweise war Erwin Zulic damals sein Lieblingsspieler, und bei seinen Spielen durfte Amar mit ihm zusammen einlaufen. Seitdem hat sich viel in Amars Leben verändert: Er wurde im Leistungszentrum zum Rookie of the Year gekürt, spielte für Montenegro in der A-Division bei den Europameisterschaften und ist nun seit vier Jahren Teil des FC Bayern München Basketball-Teams.",
+    image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725095458/nefz0rsefihobnsw3f3r.jpg",
+  },
+  {
+    name: "Arian Sadiković",
+    title: "Kickboxer",
+    description: "Arian Sadiković ist ein deutsch-bosnischer Kickboxer aus Hannover, der zuvor bei Glory und ONE Championship gekämpft hat. Er ist bekannt für seine Erfolge, darunter Siege gegen Nieky Holzken, Sergej Braun und Mustapha Haida, und ist aktuell als Nummer 8 der Weltergewichtsklasse weltweit eingestuft. Sadiković begann mit 13 Jahren mit dem Kickboxen und hat insgesamt 42 Kämpfe bestritten, von denen er 38 gewann, 18 davon durch K.o. Im August 2024 kehrte er zu Glory zurück und ist für einen Kampf bei Glory 95 im September 2024 angesetzt.",
+    image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725096356/Arian_Sadokovic-hero-1200x1165-1-600x583_dfrgqt.jpg",
   }
 ];
 
