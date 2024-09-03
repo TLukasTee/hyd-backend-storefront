@@ -48,6 +48,16 @@ export default async function ProductNutritions({
       ]
     }
 
+    else if (metadata.product_type === 'bcaa1') {
+      return [
+        { label: 'BCAA', value: '7000', unit: 'mg | 2:1:1', barWidth: 'w-12', barColor: 'bg-white' },
+        { label: 'L-Lucine', value: '3500', unit: 'mg', barWidth: 'w-24', barColor: 'bg-green-500' },
+        { label: 'L-Valine', value: '1750', unit: 'mg', barWidth: 'w-12', barColor: 'bg-blue-500' },
+        { label: 'L-Isoleucine', value: '1750', unit: 'mg', barWidth: 'w-12', barColor: 'bg-blue-500' },
+
+      ]
+    }
+
     else if (metadata.product_type === 'magnesium') {
         return [
           { label: 'Magnesium Zitrat', value: '200', unit: 'mg', barWidth: 'w-24', barColor: 'bg-red-500' },
