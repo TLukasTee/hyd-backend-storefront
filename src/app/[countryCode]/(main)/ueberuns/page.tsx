@@ -29,12 +29,12 @@ const athletes = [
   {
     name: "Erwin Zulic",
     title: "ehemaliger Basketballprofi und Nationalspieler",
-    description: "rwin Zulic ist ein ehemaliger Basketballprofi und Nationalspieler, der seine Leidenschaft für den Sport mit umfangreichem Fachwissen verbindet. Durch seine langjährige, internationale Erfahrung auf professionellem Niveau ist er heute ein engagierter Coach und Mentor, der junge Talente dabei unterstützt, ihre sportlichen und mentalen Ziele zu erreichen. Mit seinem besonderen Interesse an Ernährungs- und Sportwissenschaften bietet Erwin umfassendes Wissen und individuelle Betreuung an. Besonders liegt ihm die Förderung von Kindern und Jugendlichen im Basketball am Herzen; dabei unterstützt er nicht nur ihre sportliche Leistung, sondern auch ihre persönliche Entwicklung. Erwin Zulic möchte sich im Bereich Sport- und Mental-Coaching weiter etablieren und Athleten dabei helfen, ihre Visionen zu verwirklichen.",
+    description: "Erwin Zulic ist ein ehemaliger Basketballprofi und Nationalspieler, der seine Leidenschaft für den Sport mit umfangreichem Fachwissen verbindet. Durch seine langjährige, internationale Erfahrung auf professionellem Niveau ist er heute ein engagierter Coach und Mentor, der junge Talente dabei unterstützt, ihre sportlichen und mentalen Ziele zu erreichen. Mit seinem besonderen Interesse an Ernährungs- und Sportwissenschaften bietet Erwin umfassendes Wissen und individuelle Betreuung an. Besonders liegt ihm die Förderung von Kindern und Jugendlichen im Basketball am Herzen; dabei unterstützt er nicht nur ihre sportliche Leistung, sondern auch ihre persönliche Entwicklung. Erwin Zulic möchte sich im Bereich Sport- und Mental-Coaching weiter etablieren und Athleten dabei helfen, ihre Visionen zu verwirklichen.",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725111217/image00001_gz6yst.jpg",
   },
   {
     name: "Amar Licina",
-    title: "Kampfsportler & MMA-Staatsmeister",
+    title: "Basketballprofi | FC Bayern München",
     description: "Amar Licina begann im Alter von acht Jahren beim WBC mit dem Basketballspielen. Witzigerweise war Erwin Zulic damals sein Lieblingsspieler, und bei seinen Spielen durfte Amar mit ihm zusammen einlaufen. Seitdem hat sich viel in Amars Leben verändert: Er wurde im Leistungszentrum zum Rookie of the Year gekürt, spielte für Montenegro in der A-Division bei den Europameisterschaften und ist nun seit vier Jahren Teil des FC Bayern München Basketball-Teams.",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725095458/nefz0rsefihobnsw3f3r.jpg",
   },
