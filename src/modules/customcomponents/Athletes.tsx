@@ -30,7 +30,7 @@ const athletes: Athlete[] = [
     instagramUrl: "https://www.instagram.com/akh.arsaev/"
   },
   {
-    id: 2,
+    id: 3,
     name: "Magomed Arsaev",
     username: "@mag.arsaev",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1719428345/425679073_17924609243835560_4696942332228121857_n_upbdap.jpg",
@@ -55,7 +55,7 @@ const athletes: Athlete[] = [
   },
 
   {
-    id: 7,
+    id: 6,
     name: "Arian Sadiković",
     username: "@ariansadikovic",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725096356/Arian_Sadokovic-hero-1200x1165-1-600x583_dfrgqt.jpg",
@@ -64,12 +64,21 @@ const athletes: Athlete[] = [
   },
 
   {
-    id: 6,
+    id: 7,
     name: "Erwin Zulic",
     username: "@airwin_11_",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725111217/image00001_gz6yst.jpg",
     profilePic: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725095271/batr4rhm3zk67kmthnyf.jpg",
     instagramUrl: "https://www.instagram.com/airwin_11_/",
+  },
+
+  {
+    id: 8,
+    name: "Edvin Nuhanovic",
+    username: "@edvinnuhanovic",
+    image: "https://utfs.io/f/aYWdZO7L4xkb6FlA5laJA6GRKzeLEyMvr2950xT1FCJanlDw",
+    profilePic: "https://utfs.io/f/aYWdZO7L4xkbiVC999B0pfWjVQnUrAZaRcNv7GsFzbX8oI5J",
+    instagramUrl: "https://www.instagram.com/edvin.nhc/",
   },
 
   
@@ -117,7 +126,7 @@ const ZNAthletes: React.FC = () => {
               <AthleteCard key={athlete.id} athlete={athlete} />
             ))}
            
-             {athletes.slice(4, 7).map(athlete => (
+             {athletes.slice(4, 8).map(athlete => (
           
               <AthleteCard key={athlete.id} athlete={athlete} />
        

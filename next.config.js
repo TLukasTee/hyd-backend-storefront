@@ -32,7 +32,11 @@ const nextConfig = withStoreConfig({
       {
         protocol: "https",
         hostname: "hyd-ecommerce-bucket.fra1.digitaloceanspaces.com",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+      },
     ],
   },
 })

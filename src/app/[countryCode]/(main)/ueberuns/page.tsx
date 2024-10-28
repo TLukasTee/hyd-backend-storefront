@@ -43,6 +43,12 @@ const athletes = [
     title: "Kickboxer",
     description: "Arian Sadiković ist ein deutsch-bosnischer Kickboxer aus Hannover, der zuvor bei Glory und ONE Championship gekämpft hat. Er ist bekannt für seine Erfolge, darunter Siege gegen Nieky Holzken, Sergej Braun und Mustapha Haida, und ist aktuell als Nummer 8 der Weltergewichtsklasse weltweit eingestuft. Sadiković begann mit 13 Jahren mit dem Kickboxen und hat insgesamt 42 Kämpfe bestritten, von denen er 38 gewann, 18 davon durch K.o. Im August 2024 kehrte er zu Glory zurück und ist für einen Kampf bei Glory 95 im September 2024 angesetzt.",
     image: "https://res.cloudinary.com/dd0kypcrk/image/upload/v1725096356/Arian_Sadokovic-hero-1200x1165-1-600x583_dfrgqt.jpg",
+  },
+  {
+    name: "Edvin Nuhanovic",
+    title: "Kickboxer",
+    description: "Edvin Nuhanovic begann im Alter von sechs Jahren mit Taekwondo und widmete sich dieser Kampfkunst über zehn Jahre hinweg. In dieser Zeit erreichte er nicht nur den schwarzen Gürtel, sondern wurde auch mehrfacher Staatsmeister, was seine Expertise und sein technisches Können in dieser Disziplin eindrucksvoll unterstreicht. Nach einer erfolgreichen Karriere im Taekwondo verlagerte er seinen Schwerpunkt auf das Kickboxen, wo er sich ebenfalls schnell etablierte. Sein bisher größter Erfolg im Kickboxen ist der Titel des Vizeweltmeisters bei der ISKA-Junioren-Weltmeisterschaft im K1. Edvin zeichnet sich durch herausragende Disziplin, technische Präzision und einen unermüdlichen Willen zur kontinuierlichen Weiterentwicklung in allen Bereichen des Kampfsports aus.",
+    image: "https://utfs.io/f/aYWdZO7L4xkb6FlA5laJA6GRKzeLEyMvr2950xT1FCJanlDw",
   }
 ];
 
