@@ -5,6 +5,9 @@ import { NextRequest, NextResponse } from "next/server"
 const BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
 
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin'
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'password'
+
 const regionMapCache = {
   regionMap: new Map<string, Region>(),
   regionMapUpdated: Date.now(),
@@ -81,9 +84,29 @@ async function getCountryCode(
 }
 
 /**
- * Middleware to handle region selection and onboarding status.
+ * Simple authentication check
+ */
+function isAuthenticated(request: NextRequest) {
+  const authToken = request.cookies.get('auth_token')?.value
+  return authToken === `${ADMIN_USERNAME}:${ADMIN_PASSWORD}`
+}
+
+/**
+ * Middleware to handle region selection, onboarding status and authentication.
  */
 export async function middleware(request: NextRequest) {
+  // Don't protect the login page itself
+  if (request.nextUrl.pathname === '/login') {
+    return NextResponse.next()
+  }
+
+  // Check if authenticated
+  if (!isAuthenticated(request)) {
+    const loginUrl = new URL('/login', request.url)
+    loginUrl.searchParams.set('from', request.nextUrl.pathname)
+    return NextResponse.redirect(loginUrl)
+  }
+
   const searchParams = request.nextUrl.searchParams
   const isOnboarding = searchParams.get("onboarding") === "true"
   const cartId = searchParams.get("cart_id")
@@ -138,5 +161,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|favicon.ico).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+  ],
 }
